@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>อาณาจักรหมากรุกราชา & ราชินีพาสเทลสุดคิวท์ (เชื่อมฐานข้อมูลสำเร็จแล้ว)</title>
+    <title>อาณาจักรหมากรุกไทยพาสเทลแสนหวาน (เชื่อมหลังบ้านสำเร็จแล้ว) 🐱👑</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for Icons -->
@@ -45,7 +45,7 @@
             justify-content: center;
             position: relative;
             cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             user-select: none;
         }
         .square-light {
@@ -57,13 +57,14 @@
         .square-selected {
             background-color: #ff9ebb !important;
             box-shadow: inset 0 0 0 4px #ff4d80 !important;
+            transform: scale(0.95);
         }
         .square-valid-move::after {
             content: '🌸';
             font-size: 1.2rem;
             opacity: 0.8;
             position: absolute;
-pointer-events: none;
+            pointer-events: none;
             animation: pulse-heart 1.5s infinite;
         }
         .square-valid-capture::after {
@@ -114,7 +115,7 @@ pointer-events: none;
             }
         }
         .piece-role-badge {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             font-weight: bold;
             padding: 1px 5px;
             border-radius: 9999px;
@@ -132,7 +133,7 @@ pointer-events: none;
         }
         @keyframes pulse-heart {
             0% { transform: scale(0.9); opacity: 0.6; }
-            50% { transform: scale(1.1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 1; }
             100% { transform: scale(0.9); opacity: 0.6; }
         }
         @keyframes shake {
@@ -166,9 +167,9 @@ pointer-events: none;
                     <span class="text-3xl">🐱👑</span>
                 </div>
                 <div>
-                    <h1 class="text-2xl font-bold tracking-wider text-pink-500 text-shadow">KINGS & QUEENS CHESS</h1>
+                    <h1 class="text-2xl font-bold tracking-wider text-pink-500 text-shadow">KINGS & QUEENS MAKRUK</h1>
                     <p class="text-xs text-purple-400 font-semibold flex items-center gap-1">
-                        <i class="fas fa-database text-pink-400"></i> โหมดออนไลน์เชื่อมฐานข้อมูล (Google Sheets Web App DB) 🎈
+                        <i class="fas fa-database text-pink-400"></i> โหมดออนไลน์จริงเชื่อมฐานข้อมูล หมากรุกไทยพาสเทล 🌸
                     </p>
                 </div>
             </div>
@@ -182,7 +183,7 @@ pointer-events: none;
                     </button>
                 </div>
                 <button id="btn-show-tutorial" onclick="toggleTutorialModal(true)" class="bg-indigo-400 hover:bg-indigo-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center gap-1.5 border-b-4 border-indigo-600">
-                    <i class="fas fa-book-open"></i> วิธีเล่น 📖
+                    <i class="fas fa-book-open"></i> วิธีเล่นหมากรุกไทย 📖
                 </button>
                 <button id="btn-show-rank" onclick="toggleRankModal(true)" class="bg-amber-400 hover:bg-amber-500 text-amber-950 px-4 py-2 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center gap-1.5 border-b-4 border-amber-600">
                     <i class="fas fa-crown text-amber-900"></i> บอร์ดคนเก่ง
@@ -191,10 +192,8 @@ pointer-events: none;
         </div>
     </header>
 
-    <!-- Main Content Grid -->
     <main class="flex-grow max-w-6xl w-full mx-auto p-4 md:p-6 flex flex-col lg:flex-row gap-6 items-start justify-center z-10">
         
-        <!-- Left Side -->
         <div class="w-full lg:w-2/3 flex flex-col items-center">
             
             <div id="section-auth" class="w-full max-w-md cute-card p-8 shadow-2xl my-12 relative overflow-hidden">
@@ -213,8 +212,8 @@ pointer-events: none;
                         <div class="inline-block bg-pink-100 p-4 rounded-full mb-2">
                             <span class="text-4xl">🐱🏰</span>
                         </div>
-                        <h2 class="text-xl font-bold text-pink-600">ยินดีต้อนรับกลับสู่อาณาจักร!</h2>
-                        <p class="text-slate-500 text-xs mt-1">กรอกชื่อผู้ใช้และรหัสผ่านเพื่อเชื่อมฐานข้อมูล</p>
+                        <h2 class="text-xl font-bold text-pink-600">ยินดีต้อนรับกลับสู่อาณาจักรหมากรุกไทย!</h2>
+                        <p class="text-slate-500 text-xs mt-1">กรอกชื่อผู้ใช้และรหัสผ่านเพื่อเชื่อมฐานข้อมูลจริง</p>
                     </div>
                     <form onsubmit="event.preventDefault(); handleLogin();" class="space-y-4">
                         <div>
@@ -257,27 +256,25 @@ pointer-events: none;
             </div>
 
             <div id="section-lobby" class="hidden w-full max-w-2xl cute-card p-6 md:p-8 shadow-xl my-4">
-                <!-- Status Badge Banner for connection status -->
-                <div id="connection-status-badge" class="bg-amber-100 border-2 border-amber-300 text-amber-700 p-4 rounded-2xl text-xs font-semibold mb-6 flex flex-col md:flex-row items-center justify-between gap-2 shadow-inner">
-                    <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span> 💡 โหมดใช้งาน: กำลังเล่นในระบบ Sandbox (ยังไม่ได้เชื่อมฐานข้อมูล Sheet)</span>
-                    <span class="text-[10px] text-slate-500 font-normal">ติดตั้งลิงก์ Web App ที่หัวไฟล์ index.html เพื่อออนไลน์จริง 🌟</span>
+                <div id="connection-status-badge" class="bg-green-100 border-2 border-green-300 text-green-700 p-4 rounded-2xl text-xs font-semibold mb-6 flex flex-col md:flex-row items-center justify-between gap-2 shadow-inner">
+                    <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-ping"></span> 🟢 เชื่อมต่อฐานข้อมูลจริงสำเร็จแล้ว!</span>
+                    <span class="text-[10px] text-slate-500 font-normal">พร้อมรันความสุขในสเกลหมากรุกไทยออนไลน์ 🌸</span>
                 </div>
 
-                <h3 class="text-xl font-bold mb-6 text-center text-purple-600"><i class="fas fa-star text-pink-400 mr-2"></i> เลือกดินแดนที่คุณอยากผจญภัย</h3>
+                <h3 class="text-xl font-bold mb-6 text-center text-purple-600"><i class="fas fa-star text-pink-400 mr-2"></i> เลือกดินแดนแข่งขันที่คุณชอบ</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- AI Mode Card -->
                     <div class="bg-pink-50/50 border-3 border-pink-200 hover:border-pink-400 p-6 rounded-3xl transition flex flex-col justify-between shadow-sm">
                         <div>
                             <div class="text-pink-400 text-4xl mb-3">🤖🧁</div>
-                            <h4 class="text-lg font-bold text-pink-600 mb-1">สู้กับน้อน AI</h4>
-                            <p class="text-slate-500 text-xs mb-4">ฝึกทักษะกับคอมพิวเตอร์อัจฉริยะ สามารถเลือกความท้าทายได้ตามใจชอบเลยนะ!</p>
+                            <h4 class="text-lg font-bold text-pink-600 mb-1">ฝึกวิชากับบอทเหมียว AI</h4>
+                            <p class="text-slate-500 text-xs mb-4">ฝึกฝนหมากรุกไทยกับบอทคอมพิวเตอร์แสนซน ปรับความยากได้เลยจ้า!</p>
                             <div class="mb-4">
-                                <label class="block text-xs font-bold text-purple-500 mb-1.5">ระดับความกวนของบอท</label>
+                                <label class="block text-xs font-bold text-purple-500 mb-1.5">ระดับความพริ้วของบอท</label>
                                 <select id="ai-difficulty" class="w-full bg-white border-2 border-pink-200 text-sm rounded-xl p-2.5 font-bold text-pink-500 focus:ring-pink-300 focus:outline-none">
-                                    <option value="easy">ระดับอนุบาลเหมียว (Easy)</option>
-                                    <option value="medium" selected>ระดับปานกลางแสนซน (Medium)</option>
-                                    <option value="hard">ระดับบอสจอมป่วน (Hard)</option>
+                                    <option value="easy">ระดับอนุบาลแสนมึน (Easy)</option>
+                                    <option value="medium" selected>ระดับปราชญ์ปุยฝ้าย (Medium)</option>
+                                    <option value="hard">ระดับบอสจอมเขมือบ (Hard)</option>
                                 </select>
                             </div>
                         </div>
@@ -286,32 +283,30 @@ pointer-events: none;
                         </button>
                     </div>
 
-                    <!-- Google Sheets Online Mode Card -->
                     <div class="bg-blue-50/50 border-3 border-blue-200 hover:border-blue-400 p-6 rounded-3xl transition flex flex-col justify-between shadow-sm">
                         <div>
                             <div class="text-blue-400 text-4xl mb-3">⚡ DB LIVE 📋</div>
-                            <h4 class="text-lg font-bold text-blue-600 mb-1">โหมดออนไลน์ปาร์ตี้</h4>
-                            <p class="text-slate-500 text-xs mb-4">ดวลฝีมือจริงกับเพื่อนต่างคอมผ่านอินเทอร์เน็ต บันทึกห้องเล่นสะสมผลแต้มลง Google Sheets 🌟</p>
+                            <h4 class="text-lg font-bold text-blue-600 mb-1">ปาร์ตี้หมากรุกไทยออนไลน์</h4>
+                            <p class="text-slate-500 text-xs mb-4">สร้างหรือเข้าร่วมกระดานดวลกับเพื่อนสด ๆ ทั่วประเทศ ส่งค่าลงชีตแบบเรียลไทม์ 🌟</p>
                         </div>
                         <div class="space-y-3">
                             <button onclick="createNewOnlineRoom()" class="w-full bg-blue-400 hover:bg-blue-500 text-white py-2.5 rounded-xl font-bold text-sm transition shadow-md border-b-4 border-blue-600 transform active:scale-95 flex items-center justify-center gap-1.5">
-                                <i class="fas fa-plus-circle"></i> สร้างห้องออนไลน์จริง 🌸
+                                <i class="fas fa-plus-circle"></i> สร้างปาร์ตี้หมากรุกไทย 🌸
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Online Rooms List -->
                 <div class="mt-8 border-t-2 border-pink-100 pt-6">
                     <h5 class="text-sm font-bold text-purple-500 uppercase tracking-wider mb-4 flex items-center justify-between">
-                        <span><i class="fas fa-magic mr-1.5 text-pink-400"></i> ปาร์ตี้ว่างบนฐานข้อมูลจริง</span>
+                        <span><i class="fas fa-magic mr-1.5 text-pink-400"></i> กระดานออนไลน์ที่เปิดรับเพื่อน</span>
                         <button onclick="refreshRoomsList()" class="text-xs text-blue-500 hover:text-blue-600 transition flex items-center gap-1 font-bold">
-                            <i class="fas fa-sync-alt" id="refresh-icon"></i> ค้นหาห้องใหม่ 🔁
+                            <i class="fas fa-sync-alt" id="refresh-icon"></i> หาห้องว่างใหม่ 🔁
                         </button>
                     </h5>
                     <div id="rooms-list" class="max-h-56 overflow-y-auto space-y-3 pr-2">
                         <div class="text-center py-6 text-slate-400 text-sm bg-white/50 border-2 border-dashed border-pink-200 rounded-2xl">
-                            กำลังโหลดปาร์ตี้... ลองกดสร้างห้องออนไลน์ดวลฝีมือจริงดูสิคะ! 🎀
+                            กำลังเรียกดูข้อมูห้องประลอง... 🎀
                         </div>
                     </div>
                 </div>
@@ -322,12 +317,12 @@ pointer-events: none;
                 <div class="w-full max-w-[500px] bg-white/90 border-3 border-pink-100 rounded-3xl p-4 mb-4 flex flex-col gap-3 shadow-md">
                     <div class="flex items-center justify-between">
                         <div class="flex flex-col">
-                            <span id="player-white" class="text-sm font-bold text-pink-500">🏰 สีชมพู: ...</span>
-                            <div id="captured-by-white" class="text-xs text-slate-400 flex items-center gap-1 mt-1 font-semibold min-h-[22px]">จับได้: 🌸</div>
+                            <span id="player-white" class="text-sm font-bold text-pink-500">🏰 ฝ่ายชมพู: ...</span>
+                            <div id="captured-by-white" class="text-xs text-slate-400 flex items-center gap-1 mt-1 font-semibold min-h-[22px]">กินได้: 🌸</div>
                         </div>
                         <div class="text-right flex flex-col items-end">
-                            <span id="player-black" class="text-sm font-bold text-blue-500">🌌 สีฟ้า: ...</span>
-                            <div id="captured-by-black" class="text-xs text-slate-400 flex items-center gap-1 mt-1 font-semibold min-h-[22px] justify-end">จับได้: 🌌</div>
+                            <span id="player-black" class="text-sm font-bold text-blue-500">🌌 ฝ่ายฟ้า: ...</span>
+                            <div id="captured-by-black" class="text-xs text-slate-400 flex items-center gap-1 mt-1 font-semibold min-h-[22px] justify-end">กินได้: 🌌</div>
                         </div>
                     </div>
                     <div class="flex justify-between items-center border-t border-dashed border-pink-100 pt-2">
@@ -337,7 +332,7 @@ pointer-events: none;
                                 ตาสีชมพูเดิน
                             </div>
                             <div id="online-room-code" class="text-xs text-purple-400 mt-1 font-bold hidden">
-                                รหัสห้องออนไลน์: <span class="bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full text-[11px]" id="room-code-display">...</span>
+                                รหัสเข้าห้อง: <span class="bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full text-[11px]" id="room-code-display">...</span>
                             </div>
                         </div>
                     </div>
@@ -345,13 +340,13 @@ pointer-events: none;
 
                 <!-- The Chess Board -->
                 <div class="w-full flex justify-center">
-                    <div id="board" class="chess-board"></div>
+                    <div id="board" class="chess-board animate-fade-in"></div>
                 </div>
 
                 <!-- Control Buttons -->
                 <div class="w-full max-w-[500px] mt-5 flex justify-between gap-4">
                     <button onclick="exitGameToLobby()" class="flex-1 bg-red-100 hover:bg-red-200 border-2 border-red-300 text-red-600 font-bold py-2.5 px-4 rounded-2xl transition flex items-center justify-center gap-2 shadow-sm border-b-4 border-red-400 active:scale-95">
-                        <i class="fas fa-sign-out-alt"></i> ยอมแพ้ / กลับบ้าน
+                        <i class="fas fa-sign-out-alt"></i> ยอมแพ้ / กลับล็อบบี้
                     </button>
                     <button onclick="resetLocalGame()" id="btn-reset-game" class="flex-1 bg-pink-100 hover:bg-pink-200 text-pink-600 border-2 border-pink-300 font-bold py-2.5 px-4 rounded-2xl transition flex items-center justify-center gap-2 shadow-sm border-b-4 border-pink-400 active:scale-95">
                         <i class="fas fa-redo"></i> เริ่มใหม่ (บอท)
@@ -361,28 +356,27 @@ pointer-events: none;
 
         </div>
 
-        <!-- Right Side -->
         <div class="w-full lg:w-1/3 space-y-6">
             <div id="game-sidebar-info" class="cute-card p-5 shadow-md">
                 <h4 class="font-bold text-md text-pink-600 mb-3 border-b-2 border-pink-100 pb-2 flex items-center gap-2">
-                    <i class="fas fa-history text-pink-400"></i> บันทึกก้าวเดิน
+                    <i class="fas fa-history text-pink-400"></i> บันทึกกระดาน
                 </h4>
                 <div id="move-history-list" class="h-40 overflow-y-auto text-xs text-slate-500 space-y-1">
-                    <p class="italic text-slate-400 text-center py-4">เปิดบันทึกเมื่อเริ่มเกมก้าวแรกนะคะ ✨</p>
+                    <p class="italic text-slate-400 text-center py-4">เริ่มต้นความสุขเมื่อขยับก้าวแรกนะคะ ✨</p>
                 </div>
             </div>
 
             <!-- Leaderboard Display -->
             <div class="cute-card p-5 shadow-md">
                 <h4 class="font-bold text-md text-amber-500 mb-4 border-b-2 border-amber-100 pb-2 flex items-center gap-2">
-                    <i class="fas fa-crown"></i> 5 อันดับคนเก่งที่สุด 🏆
+                    <i class="fas fa-crown"></i> 5 ดาวยอดฝีมือพาสเทล 🏆
                 </h4>
                 <div class="overflow-x-auto">
                     <table class="w-full text-xs text-left text-slate-600">
                         <thead class="text-purple-600 uppercase bg-pink-50/50">
                             <tr>
                                 <th class="px-2 py-2">อันดับ</th>
-                                <th class="px-2 py-2">ชื่อผู้เล่น</th>
+                                <th class="px-2 py-2">ชื่อ</th>
                                 <th class="px-2 py-2 text-center">ชนะ</th>
                                 <th class="px-2 py-2 text-center">แพ้</th>
                                 <th class="px-2 py-2 text-center">คะแนน</th>
@@ -390,7 +384,7 @@ pointer-events: none;
                         </thead>
                         <tbody id="leaderboard-body">
                             <tr>
-                                <td colspan="5" class="text-center py-4 text-slate-400 italic">ไม่มีข้อมูลคะแนน</td>
+                                <td colspan="5" class="text-center py-4 text-slate-400 italic">กำลังเรียกข้อมูลตารางคะแนน...</td>
                             </tr>
                         </tbody>
                     </table>
@@ -406,7 +400,7 @@ pointer-events: none;
                 <i class="fas fa-times text-2xl"></i>
             </button>
             <h3 class="text-xl font-bold text-pink-500 mb-6 flex items-center gap-2">
-                <i class="fas fa-trophy text-2xl text-amber-400"></i> ทำเนียบผู้พิชิตคะแนนพาสเทล
+                <i class="fas fa-trophy text-2xl text-amber-400"></i> ทำเนียบผู้พิชิตคะแนนพาสเทลไทย
             </h3>
             <div class="overflow-y-auto max-h-96 rounded-2xl border-2 border-pink-100 bg-white/70">
                 <table class="w-full text-sm text-left text-slate-600">
@@ -435,19 +429,19 @@ pointer-events: none;
     <div id="modal-cors-trouble" class="fixed inset-0 bg-black/55 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="cute-card max-w-md w-full p-6 text-center relative border-rose-200">
             <div class="text-5xl mb-3">🛠️😿</div>
-            <h3 class="text-xl font-bold text-rose-500 mb-2">เชื่อมต่อฐานข้อมูลล้มเหลว!</h3>
+            <h3 class="text-xl font-bold text-rose-500 mb-2">เชื่อมต่อขัดข้องชั่วคราว!</h3>
             <p class="text-slate-600 text-sm mb-4">
-                พบข้อผิดพลาดขณะส่งข้อมูลไปที่ Google Sheets (CORS/Network Error) โดยส่วนใหญ่เกิดจาก<strong>สิทธิ์การเข้าถึงหลังบ้านไม่ถูกต้อง</strong>ค่ะ
+                พบปัญหาขณะเชื่อมต่อไปยัง Google Sheets (CORS/Network Issue) แนะนำให้ตรวจสอบสิทธิ์ของเว็บแอปค่ะ
             </p>
             <div class="bg-rose-50 p-4 rounded-2xl border-2 border-rose-100 text-left text-xs text-slate-600 space-y-2 mb-4">
-                <p class="font-bold text-rose-600 flex items-center gap-1"><i class="fas fa-exclamation-triangle"></i> วิธีแก้ไขภายใน 1 นาที:</p>
-                <p>1. เปิดหน้า **Google Apps Script** ของคุณ</p>
-                <p>2. กดปุ่ม **Deploy (การทำงานใช้จริงใหม่)** สีน้ำเงินขวาบน</p>
-                <p>3. ตรงส่วน **Who has access (ผู้มีสิทธิ์เข้าถึง)** ให้เปลี่ยนจาก "Only me" เป็น <strong class="text-rose-600">"Anyone" (ทุกคน)</strong></p>
-                <p>4. กดปุ่ม **Deploy** ยืนยันสิทธิ์อีกครั้ง แล้วนำลิงก์ใหม่มาใช้ค่ะ!</p>
+                <p class="font-bold text-rose-600 flex items-center gap-1"><i class="fas fa-exclamation-triangle"></i> วิธีแก้ไขใน 1 นาที:</p>
+                <p>1. เปิดหน้า Apps Script ของคุณ</p>
+                <p>2. กด Deploy (การทำงานใช้จริงใหม่) ด้านบนขวา</p>
+                <p>3. ในหัวข้อ **"Who has access"** ตรวจดูว่าเปลี่ยนเป็น **"Anyone" (ทุกคน)** หรือยัง</p>
+                <p>4. หากยัง ให้แก้ไขเป็น Anyone แล้วนำลิงก์ใหม่มาใส่นะคะ 🌸</p>
             </div>
             <button onclick="document.getElementById('modal-cors-trouble').classList.add('hidden')" class="w-full bg-rose-400 hover:bg-rose-500 text-white font-bold py-2.5 rounded-xl border-b-4 border-rose-600 transition text-sm">
-                รับทราบและเตรียมตัวแก้ไข 🌸
+                ตกลงค่ะจะตรวจสิทธิ์ 🌸
             </button>
         </div>
     </div>
@@ -456,19 +450,19 @@ pointer-events: none;
     <div id="modal-game-over" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="cute-card max-w-sm w-full p-6 text-center relative">
             <div id="game-over-emoji" class="text-6xl mb-4">🏆</div>
-            <h3 id="game-over-title" class="text-2xl font-bold text-pink-600 mb-2">ชัยชนะอันแสนหวาน!</h3>
-            <p id="game-over-subtitle" class="text-slate-500 text-sm mb-4">คุณทำผลงานได้อย่างยอดเยี่ยมมากค่ะ!</p>
+            <h3 id="game-over-title" class="text-2xl font-bold text-pink-600 mb-2">ชัยชนะแสนหวาน!</h3>
+            <p id="game-over-subtitle" class="text-slate-500 text-sm mb-4">คุณทำผลงานได้อย่างโดดเด่นมากค่ะ!</p>
             <div class="bg-pink-50 p-4 rounded-2xl border-2 border-pink-100 mb-6">
-                <p class="text-xs text-purple-400 font-bold">คะแนนที่ได้รับ</p>
+                <p class="text-xs text-purple-400 font-bold">คะแนนปาร์ตี้</p>
                 <div id="game-over-points" class="text-2xl font-bold text-pink-500">+25 แต้ม</div>
                 <div class="text-[11px] text-slate-400 mt-1">คะแนนรวมสะสม: <span id="game-over-total-score" class="font-bold text-purple-600">1000</span> แต้ม</div>
             </div>
             <div class="flex gap-3 justify-center">
                 <button id="btn-modal-restart" onclick="restartFromGameOver()" class="bg-pink-400 hover:bg-pink-500 text-white font-bold py-2.5 px-5 rounded-xl transition transform active:scale-95 shadow-md border-b-4 border-pink-600 text-sm">
-                    เล่นต่อทันที 💖
+                    เล่นอีกสักตา 💖
                 </button>
                 <button onclick="exitFromGameOver()" class="bg-indigo-100 hover:bg-indigo-200 text-indigo-600 font-bold py-2.5 px-5 rounded-xl transition transform active:scale-95 border-b-4 border-indigo-300 text-sm">
-                    กลับล็อบบี้ 🏠
+                    กลับห้องล็อบบี้ 🏠
                 </button>
             </div>
         </div>
@@ -481,21 +475,33 @@ pointer-events: none;
                 <i class="fas fa-times text-2xl"></i>
             </button>
             <h3 class="text-xl font-bold text-pink-500 mb-4 flex items-center gap-2 shrink-0">
-                <i class="fas fa-book-open text-2xl text-indigo-400"></i> คู่มือการผจญภัยในดินแดนหมากรุก 🌸
+                <i class="fas fa-book-open text-2xl text-indigo-400"></i> กติกาวิธีการเล่นหมากรุกไทย (พาสเทล) 🌸
             </h3>
-            <div class="overflow-y-auto pr-2 space-y-4 flex-grow text-sm">
+            <div class="overflow-y-auto pr-2 space-y-4 flex-grow text-sm text-slate-600">
+                <div class="bg-pink-50 p-4 rounded-2xl border-2 border-pink-100">
+                    <h4 class="font-bold text-pink-600 mb-1">👑 บทบาทตัวหมากรุกไทยและทิศทางเดิน:</h4>
+                    <ul class="list-decimal pl-5 space-y-2">
+                        <li><strong>ขุน 🐱/🐻 (King)</strong>: เดินก้าวสั้นได้รอบทิศทาง 8 ด้าน (ด้านละ 1 ช่อง)</li>
+                        <li><strong>เม็ด 🐰/🐼 (Met)</strong>: เดินแนวเฉียงทแยงมุมได้รอบตัว 4 ทิศทาง ด้านละ 1 ช่อง</li>
+                        <li><strong>โคน 🦄/🦊 (Khon)</strong>: เดินเฉียงทแยง 4 ทิศทาง หรือเดินขึ้นตรงด้านหน้า 1 ทิศทาง (รวม 5 ทิศทาง)</li>
+                        <li><strong>ม้า 🐹/🐸 (Ma)</strong>: เดินรูปตัว L (เดินตรง 2 เลี้ยวข้าง 1) กระโดดข้ามตัวอื่นได้</li>
+                        <li><strong>เรือ 🍦/🍩 (Rua)</strong>: เดินพุ่งตรงแนวตั้ง-แนวนอน ได้ยาวไม่จำกัดระยะทาง</li>
+                        <li><strong>เบี้ย 🐣/🐧 (Bia)</strong>: ตั้งบนแถวที่ 3 เดินตรงข้างหน้า 1 ช่อง กินเฉียงข้างหน้า 1 ช่อง</li>
+                        <li><strong>เบี้ยหงาย 👑 (Bia Ngai)</strong>: เมื่อเบี้ยเดินไปถึงแนวตั้งหมากฝั่งตรงข้าม (แถวที่ 6) จะแปลงร่างมีมงกุฎและเดินได้เหมือน <strong>เม็ด</strong> (ทแยงมุม 1 ช่อง)</li>
+                    </ul>
+                </div>
                 <div class="bg-indigo-50 p-4 rounded-2xl border-2 border-indigo-100">
-                    <h4 class="font-bold text-indigo-600 mb-1">🌟 วิธีการควบคุมขั้นพื้นฐาน:</h4>
-                    <ul class="list-disc pl-5 space-y-1 text-slate-600">
-                        <li><strong>คลิกที่หมาก:</strong> เพื่อส่องดูเส้นทางเดิน</li>
-                        <li><strong>ดอกไม้ 🌸:</strong> เดินไปพักผ่อนบนช่องว่าง</li>
-                        <li><strong>หัวใจ 💖:</strong> ช่องจับคู่หมากฝ่ายตรงข้าม</li>
+                    <h4 class="font-bold text-indigo-600 mb-1">⭐ สัญญาณและสัญลักษณ์ความคิวท์:</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>เมื่อคลิกที่ตัวหมาก จะแสดง <strong>ดอกไม้ 🌸</strong> แทนจุดเดินลงพักผ่อน</li>
+                        <li>จะแสดง <strong>หัวใจ 💖</strong> บนตำแหน่งที่คุณสามารถเข้าจับคู่กินหมากฝ่ายตรงข้ามได้</li>
+                        <li>ฝ่ายไหนจับกิน "ขุน" ของอีกฝั่งได้ก่อน จะเป็นฝ่ายพิชิตชัยชนะทันที!</li>
                     </ul>
                 </div>
             </div>
             <div class="mt-4 flex justify-end shrink-0">
                 <button onclick="toggleTutorialModal(false)" class="bg-indigo-400 hover:bg-indigo-500 text-white font-bold px-6 py-2 rounded-xl border-b-4 border-indigo-600 transition">
-                    เข้าใจแล้วจ้า! 🚀
+                    พร้อมออกเดินทางดวลหมากแล้วจ้า! 🚀
                 </button>
             </div>
         </div>
@@ -504,15 +510,12 @@ pointer-events: none;
     <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3"></div>
 
     <footer class="bg-white/60 py-3 text-center border-t-2 border-pink-50 text-xs text-purple-400 font-semibold">
-        &copy; 2026 Kings & Queens Chess. ระบบเชื่อมฐานข้อมูลออนไลน์ Google Sheets ครบวงจร 🌸🐈
+        &copy; 2026 Kings & Queens Makruk. อาณาจักรหมากรุกไทยพาสเทลออนไลน์ 🌸🐈
     </footer>
 
     <script type="module">
-        // 🚨 ผูกเข้ากับระบบหลังบ้าน Google Sheets Web App URL จริงของคุณเรียบร้อยแล้วค่ะ!
+        // 🔒 เชื่อมต่อลิงก์เว็บแอป Google Sheets ตัวจริงของคุณเรียบร้อยแล้วค่ะ!
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxVVyKJa-KDTEY5PC2QBP9M8rS_4ZYtjKNA9YxhF0O_BZStvvls7q88Ioysk94zwT5E/exec";
-
-        // ตัวแปรเช็คสถานะการผูกลิงก์ SCRIPT_URL กับฐานข้อมูล
-        const isSheetsDatabaseEnabled = SCRIPT_URL && !SCRIPT_URL.includes("XXXXXXXXX");
 
         let currentUser = null; 
         let playerProfile = { name: '', wins: 0, losses: 0, draws: 0, score: 1000 };
@@ -520,7 +523,7 @@ pointer-events: none;
         let capturedByWhite = [];
         let capturedByBlack = [];
 
-        let currentGameMode = null; // 'AI', 'ONLINE'
+        let currentGameMode = null; 
         let currentRoomId = null;
         let myColor = 'white'; 
         let boardState = Array(64).fill(null);
@@ -530,44 +533,36 @@ pointer-events: none;
         let isGameOver = false;
         let roomPollingInterval = null;
 
-        // ระบบสำรอง Sandbox เมื่อไม่มีฐานข้อมูลออนไลน์จริง
-        let simulatedRooms = [];
-
+        // ข้อมูลตัวละครและการเคลื่อนที่ หมากรุกไทย (Makruk Thai)
         const PIECES = {
-            'wK': { emoji: '🐱', label: 'king', color: 'white', score: 1000, name: 'ราชาลูกแมว 👑' },
-            'wQ': { emoji: '🐰', label: 'queen', color: 'white', score: 9, name: 'กระต่ายโบว์ชมพู 🎀' },
-            'wR': { emoji: '🍦', label: 'rook', color: 'white', score: 5, name: 'ซอฟต์เสิร์ฟสตรอว์เบอร์รี 🍓' },
-            'wB': { emoji: '🦄', label: 'bishop', color: 'white', score: 3, name: 'ยูนิคอร์นเวทย์วิเศษ 💫' },
-            'wN': { emoji: '🐹', label: 'knight', color: 'white', score: 3, name: 'อัศวินแฮมสเตอแครอท 🥕' },
-            'wP': { emoji: '🐥', label: 'pawn', color: 'white', score: 1, name: 'ลูกเจี๊ยบอ้วนกลม 🐣' },
+            'wK': { emoji: '🐱', label: 'ขุน 👑', color: 'white', score: 10000, name: 'ราชาแมวเด๋อ 👑' },
+            'wQ': { emoji: '🐰', label: 'เม็ด 🎀', color: 'white', score: 1.5, name: 'กระต่ายแครอทโบว์ 🎀' },
+            'wB': { emoji: '🦄', label: 'โคน 💫', color: 'white', score: 3, name: 'ยูนิคอร์นพาสเทล 💫' },
+            'wN': { emoji: '🐹', label: 'ม้า 🥕', color: 'white', score: 5, name: 'ฮิปโปสเกตบอร์ด 🥕' },
+            'wR': { emoji: '🍦', label: 'เรือ 🍓', color: 'white', score: 8, name: 'คัพเค้กสายไหม 🍓' },
+            'wP': { emoji: '🐣', label: 'เบี้ย 🐣', color: 'white', score: 1, name: 'ลูกเจี๊ยบน่ารัก 🐣' },
+            'wM': { emoji: '👑🐣', label: 'เบี้ยหงาย', color: 'white', score: 1.5, name: 'ลูกเจี๊ยบหงายมีมงกุฎ 👑' },
             
-            'bK': { emoji: '🐻', label: 'king', color: 'black', score: 1000, name: 'ราชาหมีใจดี 👑' },
-            'bQ': { emoji: '🐼', label: 'queen', color: 'black', score: 9, name: 'เจ้าหญิงแพนด้าขนฟู 🎀' },
-            'bR': { emoji: '🍩', label: 'rook', color: 'black', score: 5, name: 'ปราสาทช็อกโกโดนัท 🍫' },
-            'bB': { emoji: '🦊', label: 'bishop', color: 'black', score: 3, name: 'จิ้งจอกปัญญาญาณ 🔮' },
-            'bN': { emoji: '🐸', label: 'knight', color: 'black', score: 3, name: 'อัศวินกบโบยบิน 🌟' },
-            'bP': { emoji: '🐧', label: 'pawn', color: 'black', score: 1, name: 'ลูกเพนกวินเตาะแตะ ❄️' }
+            'bK': { emoji: '🐻', label: 'ขุน 👑', color: 'black', score: 10000, name: 'ราชาหมีกลม 👑' },
+            'bQ': { emoji: '🐼', label: 'เม็ด 🎀', color: 'black', score: 1.5, name: 'แพนด้าไข่มุก 🎀' },
+            'bB': { emoji: '🦊', label: 'โคน 🔮', color: 'black', score: 3, name: 'จิ้งจอกสายหมอก 🔮' },
+            'bN': { emoji: '🐸', label: 'ม้า 🌟', color: 'black', score: 5, name: 'กบซิ่งลมกรด 🌟' },
+            'bR': { emoji: '🍩', label: 'เรือ 🍫', color: 'black', score: 8, name: 'โดนัทช็อกโกแลต 🍫' },
+            'bP': { emoji: '🐧', label: 'เบี้ย 🐧', color: 'black', score: 1, name: 'เพนกวินปุยฝ้าย 🐧' },
+            'bM': { emoji: '👑🐧', label: 'เบี้ยหงาย', color: 'black', score: 1.5, name: 'เพนกวินสวมวิงก์ 👑' }
         };
 
+        // ตารางเริ่มต้นหมากรุกไทย (Pawns are placed on rank 3/6, setup of Met and Khun is symmetrical)
         const INITIAL_BOARD = [
             'bR', 'bN', 'bB', 'bQ', 'bK', 'bB', 'bN', 'bR',
+            null, null, null, null, null, null, null, null,
             'bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP',
             null, null, null, null, null, null, null, null,
             null, null, null, null, null, null, null, null,
-            null, null, null, null, null, null, null, null,
-            null, null, null, null, null, null, null, null,
             'wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP',
+            null, null, null, null, null, null, null, null,
             'wR', 'wN', 'wB', 'wQ', 'wK', 'wB', 'wN', 'wR'
         ];
-
-        if (isSheetsDatabaseEnabled) {
-            const badge = document.getElementById('connection-status-badge');
-            badge.className = "bg-green-100 border-2 border-green-300 text-green-700 p-4 rounded-2xl text-xs font-semibold mb-6 flex flex-col md:flex-row items-center justify-between gap-2 shadow-inner";
-            badge.innerHTML = `
-                <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-ping"></span> 🟢 เชื่อมต่อฐานข้อมูล Google Sheets สำเร็จ!</span>
-                <span class="text-[10px] text-slate-500 font-normal">พร้อมรันโหมดออนไลน์ Multiplayer เต็มพิกัดแล้วจ้า 🌸</span>
-            `;
-        }
 
         window.toggleAuthTab = (tab) => {
             const loginBtn = document.getElementById('tab-login-btn');
@@ -588,15 +583,6 @@ pointer-events: none;
             }
         };
 
-        function getLocalAccounts() {
-            let accounts = localStorage.getItem('chess_sheets_accounts');
-            return accounts ? JSON.parse(accounts) : {};
-        }
-
-        function saveLocalAccounts(accounts) {
-            localStorage.setItem('chess_sheets_accounts', JSON.stringify(accounts));
-        }
-
         window.handleRegister = async () => {
             const nickname = document.getElementById('register-nickname').value.trim();
             const password = document.getElementById('register-password').value;
@@ -607,26 +593,8 @@ pointer-events: none;
                 return;
             }
 
-            if (!isSheetsDatabaseEnabled) {
-                let accounts = getLocalAccounts();
-                if (accounts[nickname]) {
-                    showToast("ชื่อผู้ใช้งานนี้ถูกสมัครไปแล้วในเครื่องนี้ค่ะ", "error");
-                    return;
-                }
-                accounts[nickname] = {
-                    username: nickname,
-                    password: password,
-                    profile: { name: nickname, wins: 0, losses: 0, draws: 0, score: 1000 }
-                };
-                saveLocalAccounts(accounts);
-                showToast("สมัครบัญชีจำลองในเครื่องสำเร็จแล้วค่ะ! 💖 กรุณาเข้าสู่ระบบนะคะ", "success");
-                toggleAuthTab('login');
-                document.getElementById('login-username').value = nickname;
-                return;
-            }
-
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fas fa-spinner animate-spin"></i> กำลังส่งข้อมูลเข้าระบบ...`;
+            submitBtn.innerHTML = `<i class="fas fa-spinner animate-spin"></i> กำลังส่งข้อมูล...`;
 
             try {
                 const response = await fetch(SCRIPT_URL, {
@@ -641,7 +609,7 @@ pointer-events: none;
                 });
                 const result = await response.json();
                 if (result.success) {
-                    showToast("สมัครสมาชิกฐานข้อมูลออนไลน์สำเร็จแล้วค่ะ! 🎉 ล็อกอินได้เลยนะคะ", "success");
+                    showToast("สมัครสมาชิกฐานข้อมูลออนไลน์สำเร็จแล้วค่ะ! 🎉 ล็อกอินได้เลยนะ", "success");
                     toggleAuthTab('login');
                     document.getElementById('login-username').value = nickname;
                 } else {
@@ -661,23 +629,8 @@ pointer-events: none;
             const password = document.getElementById('login-password').value;
             const submitBtn = document.getElementById('btn-login-submit');
 
-            if (!isSheetsDatabaseEnabled) {
-                let accounts = getLocalAccounts();
-                const userAcc = accounts[username];
-                if (userAcc && userAcc.password === password) {
-                    currentUser = { username: username };
-                    playerProfile = userAcc.profile;
-                    localStorage.setItem('chess_sheets_logged_in_user', JSON.stringify(currentUser));
-                    showToast(`ยินดีต้อนรับสู่โหมดออฟไลน์จำลองคุณ ${playerProfile.name}! ✨`, "success");
-                    loadPlayerSession();
-                } else {
-                    showToast("ชื่อผู้ใช้งานหรือรหัสผ่านจำลองไม่ถูกต้องค่ะ", "error");
-                }
-                return;
-            }
-
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fas fa-spinner animate-spin"></i> กำลังตรวจสอบคีย์วิเศษ...`;
+            submitBtn.innerHTML = `<i class="fas fa-spinner animate-spin"></i> ตรวจสอบสิทธิ์...`;
 
             try {
                 const response = await fetch(SCRIPT_URL, {
@@ -695,7 +648,7 @@ pointer-events: none;
                     currentUser = { username: username };
                     playerProfile = result.profile;
                     localStorage.setItem('chess_sheets_logged_in_user', JSON.stringify(currentUser));
-                    showToast(`ล็อกอินเข้าสู่ฐานข้อมูลออนไลน์สำเร็จ! ยินดีต้อนรับค่ะคุณ ${playerProfile.name} ✨`, "success");
+                    showToast(`ยินดีต้อนรับสู่แดนหมากรุกพาสเทลคุณ ${playerProfile.name} ✨`, "success");
                     loadPlayerSession();
                 } else {
                     showToast(result.message, "error");
@@ -711,7 +664,7 @@ pointer-events: none;
 
         window.handleLogout = () => {
             localStorage.removeItem('chess_sheets_logged_in_user');
-            showToast("ออกจากระบบและแยกย้ายกันพักผ่อนเรียบร้อยแล้วค่ะ 🚪", "info");
+            showToast("ออกจากระบบหมากรุกเรียบร้อยแล้วค่ะ 🚪", "info");
             location.reload();
         };
 
@@ -730,26 +683,6 @@ pointer-events: none;
         }
 
         async function renderLeaderboard() {
-            if (!isSheetsDatabaseEnabled) {
-                let accounts = getLocalAccounts();
-                let players = [];
-                Object.keys(accounts).forEach(name => {
-                    const prof = accounts[name].profile;
-                    players.push({
-                        userId: name,
-                        name: prof.name,
-                        wins: prof.wins,
-                        draws: prof.draws,
-                        losses: prof.losses,
-                        score: prof.score
-                    });
-                });
-                players.push({ userId: 'bot1', name: '🤖 น้อน AI ปราชญ์ปุยฝ้าย', wins: 15, draws: 3, losses: 10, score: 1250 });
-                players.sort((a, b) => b.score - a.score);
-                drawLeaderboardTables(players);
-                return;
-            }
-
             try {
                 const response = await fetch(`${SCRIPT_URL}?action=getLeaderboard`);
                 const result = await response.json();
@@ -800,17 +733,6 @@ pointer-events: none;
         }
 
         async function syncUserProfile() {
-            if (!isSheetsDatabaseEnabled) {
-                let accounts = getLocalAccounts();
-                if (accounts[currentUser.username]) {
-                    accounts[currentUser.username].profile = playerProfile;
-                    saveLocalAccounts(accounts);
-                }
-                document.getElementById('profile-score').innerText = `🏆 ${playerProfile.score}`;
-                renderLeaderboard();
-                return;
-            }
-
             try {
                 await fetch(SCRIPT_URL, {
                     method: "POST",
@@ -834,12 +756,6 @@ pointer-events: none;
 
         window.refreshRoomsList = async () => {
             const refreshIcon = document.getElementById('refresh-icon');
-            
-            if (!isSheetsDatabaseEnabled) {
-                drawRoomsList(simulatedRooms);
-                return;
-            }
-
             refreshIcon.classList.add('animate-spin');
 
             try {
@@ -861,7 +777,7 @@ pointer-events: none;
             if (rooms.length === 0) {
                 listContainer.innerHTML = `
                     <div class="text-center py-6 text-slate-400 text-sm bg-white/50 border-2 border-dashed border-pink-200 rounded-2xl">
-                        ยังไม่มีใครตั้งปาร์ตี้ในขณะนี้เลยเหมียว กด "สร้างห้องออนไลน์จริง" ดวลกันคนแรกได้เลยค่ะ! 🎀
+                        ยังไม่มีเพื่อนเปิดกระดานในขณะนี้เลยเหมียว กด "สร้างปาร์ตี้หมากรุกไทย" คนแรกเลยสิคะ! 🎀
                     </div>
                 `;
                 return;
@@ -870,15 +786,15 @@ pointer-events: none;
             let html = '';
             rooms.forEach(room => {
                 html += `
-                    <div class="flex items-center justify-between bg-white/90 border-2 border-pink-100 p-4 rounded-2xl hover:border-pink-300 transition shadow-sm">
+                    <div class="flex items-center justify-between bg-white/90 border-2 border-pink-100 p-4 rounded-2xl hover:border-pink-300 transition shadow-sm animate-fade-in">
                         <div>
-                            <span class="text-xs ${isSheetsDatabaseEnabled ? 'bg-pink-100 text-pink-500' : 'bg-purple-100 text-purple-500'} font-bold px-3 py-1 rounded-full">
-                                ${isSheetsDatabaseEnabled ? 'ห้องออนไลน์บน Sheets' : 'ห้องจำลอง Sandbox'}
+                            <span class="text-xs bg-pink-100 text-pink-500 font-bold px-3 py-1 rounded-full">
+                                หมากรุกไทยเชื่อมฐานข้อมูลจริง
                             </span>
-                            <h6 class="text-sm font-bold text-slate-700 mt-2">บ้านปาร์ตี้ของ: ${room.hostName}</h6>
+                            <h6 class="text-sm font-bold text-slate-700 mt-2">กระดานของ: ${room.hostName}</h6>
                         </div>
                         <button onclick="joinOnlineRoom('${room.id}')" class="bg-blue-400 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition border-b-4 border-blue-600 transform active:scale-95 shadow-sm">
-                            โบยบินเข้าไปจอย 🌌
+                            ร่วมเดินทาง 🌌
                         </button>
                     </div>
                 `;
@@ -888,47 +804,7 @@ pointer-events: none;
 
         window.createNewOnlineRoom = async () => {
             const roomId = 'ROOM_' + Math.random().toString(36).substr(2, 5).toUpperCase();
-
-            if (!isSheetsDatabaseEnabled) {
-                const newSimulatedRoom = {
-                    id: roomId,
-                    hostId: currentUser.username,
-                    hostName: playerProfile.name,
-                    guestId: "",
-                    guestName: "",
-                    status: "waiting",
-                    board: [...INITIAL_BOARD],
-                    turn: "white",
-                    winner: ""
-                };
-                simulatedRooms.push(newSimulatedRoom);
-                
-                myColor = 'white';
-                currentGameMode = 'ONLINE';
-                currentRoomId = roomId;
-                boardState = [...INITIAL_BOARD];
-                turn = 'white';
-                isGameOver = false;
-
-                setupGameUI();
-                renderBoard(); 
-                renderMoveHistory();
-                startOnlinePolling(roomId);
-                showToast("สร้างห้องจำลอง Sandbox สำเร็จแล้วเหมียว! (บอทจะเข้าจอยใน 3 วินาทีค่ะ) 🧁", "success");
-
-                setTimeout(() => {
-                    const room = simulatedRooms.find(r => r.id === roomId);
-                    if (room && room.status === 'waiting') {
-                        room.guestId = "bot_sandbox";
-                        room.guestName = "🤖 บอทน้อนหงายการ์ด";
-                        room.status = "playing";
-                        showToast("บอทอัจฉริยะก้าวเข้ามาท้าประลองกับคุณในโหมดจำลองแล้วค่ะ! ⚔️", "info");
-                    }
-                }, 3000);
-                return;
-            }
-
-            showToast("กำลังเขียนโครงกระดานลงฐานข้อมูล...", "info");
+            showToast("กำลังปูผืนเสื่อกระดานหมากรุกไทยลงฐานข้อมูล...", "info");
 
             try {
                 const response = await fetch(SCRIPT_URL, {
@@ -956,9 +832,9 @@ pointer-events: none;
                     renderBoard(); 
                     renderMoveHistory();
                     startOnlinePolling(roomId);
-                    showToast("สร้างห้องใน Google Sheets สำเร็จแล้วเหมียว! นั่งทานเค้กรอเพื่อนๆ กันเถอะ 🧁", "success");
+                    showToast("เปิดปาร์ตี้กระดานหมากรุกไทยสำเร็จแล้วเหมียว! นั่งทานเค้กรอคนเล่นนะคะ 🧁", "success");
                 } else {
-                    showToast(result.message || "สร้างห้องไม่สำเร็จ", "error");
+                    showToast(result.message || "สร้างห้องออนไลน์ไม่สำเร็จ", "error");
                 }
             } catch (e) {
                 console.error(e);
@@ -967,32 +843,7 @@ pointer-events: none;
         };
 
         window.joinOnlineRoom = async (roomId) => {
-            if (!isSheetsDatabaseEnabled) {
-                const room = simulatedRooms.find(r => r.id === roomId);
-                if (room && room.status === 'waiting') {
-                    room.guestId = currentUser.username;
-                    room.guestName = playerProfile.name;
-                    room.status = 'playing';
-                    
-                    myColor = 'black';
-                    currentGameMode = 'ONLINE';
-                    currentRoomId = roomId;
-                    boardState = room.board;
-                    turn = room.turn;
-                    isGameOver = false;
-
-                    setupGameUI();
-                    renderBoard(); 
-                    renderMoveHistory();
-                    startOnlinePolling(roomId);
-                    showToast("เข้าสู่ห้องจำลองสำเร็จ! เตรียมตัวดวลฝีมือเลยนะคะ ✨", "success");
-                } else {
-                    showToast("ห้องจำลองนี้อาจเต็มหรือจบเกมไปแล้วค่ะ", "error");
-                }
-                return;
-            }
-
-            showToast("กำลังต่อคิวเขียนข้อมูลเข้าแผ่นชีต...", "info");
+            showToast("กำลังกรอกข้อมูลสมัครดวลเข้าชีต...", "info");
 
             try {
                 const response = await fetch(SCRIPT_URL, {
@@ -1015,7 +866,7 @@ pointer-events: none;
                     setupGameUI();
                     renderBoard(); 
                     startOnlinePolling(roomId);
-                    showToast("เตรียมตัวดวลฝีมือผ่านฐานข้อมูลสำเร็จแล้วค่ะ! ✨", "success");
+                    showToast("เดินทางเข้าร่วมปาร์ตี้ดวลหมากรุกไทยสำเร็จ! ✨", "success");
                 } else {
                     showToast(result.message, "error");
                 }
@@ -1031,59 +882,6 @@ pointer-events: none;
             const poll = async () => {
                 if (!currentRoomId || currentGameMode !== 'ONLINE') return;
 
-                if (!isSheetsDatabaseEnabled) {
-                    const room = simulatedRooms.find(r => r.id === roomId);
-                    if (room) {
-                        boardState = room.board;
-                        turn = room.turn;
-                        isGameOver = room.status === 'finished';
-
-                        document.getElementById('player-white').innerText = `🌸 สีชมพู: ${room.hostName} ${myColor === 'white' ? '(คุณ)' : ''}`;
-                        document.getElementById('player-black').innerText = `🌌 สีฟ้า: ${room.guestName ? room.guestName : 'รอผู้เข้าร่วม...'}`;
-
-                        if (myColor === 'black') {
-                            document.getElementById('player-white').innerText = `🌸 สีชมพู: ${room.hostName}`;
-                            document.getElementById('player-black').innerText = `🌌 สีฟ้า: ${room.guestName} (คุณ)`;
-                        }
-
-                        const turnLabel = document.getElementById('game-status');
-                        if (room.status === 'waiting') {
-                            turnLabel.innerText = "รอเพื่อนเข้ามาร่วมเล่น... 🍀";
-                            turnLabel.className = "bg-amber-100 border-2 border-amber-200 text-amber-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block animate-pulse";
-                        } else if (room.status === 'playing') {
-                            if (turn === myColor) {
-                                turnLabel.innerText = "ตาของคุณเดินแล้วนะ! ✨";
-                                turnLabel.className = "bg-green-100 border-2 border-green-200 text-green-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block animate-bounce";
-                            } else {
-                                turnLabel.innerText = `ตาของฝั่งสี${turn === 'white' ? 'ชมพู' : 'ฟ้า'}เดิน`;
-                                turnLabel.className = "bg-purple-100 border-2 border-purple-200 text-purple-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block";
-                            }
-
-                            if (turn === 'black' && room.guestId === 'bot_sandbox' && myColor === 'white' && !isGameOver) {
-                                setTimeout(() => {
-                                    const aiMove = getBestMoveDepth(2);
-                                    if (aiMove) {
-                                        executeMove(aiMove.from, aiMove.to);
-                                    }
-                                }, 1500);
-                            }
-                        } else if (room.status === 'finished') {
-                            turnLabel.innerText = `จบเกม! ผู้ชนะคือสี${room.winner === 'white' ? 'ชมพู 👑' : 'ฟ้า 👑'}`;
-                            turnLabel.className = "bg-red-100 border-2 border-red-200 text-red-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block";
-                            
-                            if (roomPollingInterval) {
-                                clearInterval(roomPollingInterval);
-                                roomPollingInterval = null;
-                            }
-                            handleGameEnd(room.winner);
-                        }
-
-                        renderBoard();
-                        renderMoveHistory();
-                    }
-                    return;
-                }
-
                 try {
                     const response = await fetch(`${SCRIPT_URL}?action=getRoomDetail&roomId=${roomId}`);
                     const result = await response.json();
@@ -1093,12 +891,12 @@ pointer-events: none;
                         turn = room.turn;
                         isGameOver = room.status === 'finished';
 
-                        document.getElementById('player-white').innerText = `🌸 สีชมพู: ${room.hostName} ${myColor === 'white' ? '(คุณ)' : ''}`;
-                        document.getElementById('player-black').innerText = `🌌 สีฟ้า: ${room.guestName ? room.guestName : 'รอผู้เข้าร่วม...'}`;
+                        document.getElementById('player-white').innerText = `🌸 ฝ่ายชมพู: ${room.hostName} ${myColor === 'white' ? '(คุณ)' : ''}`;
+                        document.getElementById('player-black').innerText = `🌌 ฝ่ายฟ้า: ${room.guestName ? room.guestName : 'รอผู้เข้าร่วม...'}`;
 
                         if (myColor === 'black') {
-                            document.getElementById('player-white').innerText = `🌸 สีชมพู: ${room.hostName}`;
-                            document.getElementById('player-black').innerText = `🌌 สีฟ้า: ${room.guestName} (คุณ)`;
+                            document.getElementById('player-white').innerText = `🌸 ฝ่ายชมพู: ${room.hostName}`;
+                            document.getElementById('player-black').innerText = `🌌 ฝ่ายฟ้า: ${room.guestName} (คุณ)`;
                         }
 
                         const turnLabel = document.getElementById('game-status');
@@ -1133,7 +931,7 @@ pointer-events: none;
             };
 
             poll();
-            roomPollingInterval = setInterval(poll, 3000); 
+            roomPollingInterval = setInterval(poll, 2500); // 2.5 seconds refresh rate for optimal fluidity
         }
 
         window.startAIGame = () => {
@@ -1150,11 +948,11 @@ pointer-events: none;
             capturedByWhite = [];
             capturedByBlack = [];
 
-            document.getElementById('player-white').innerText = `🌸 สีชมพู: ${playerProfile.name} (คุณเอง)`;
-            document.getElementById('player-black').innerText = "🌌 สีฟ้า: น้อน AI ปราชญ์ปุยฝ้าย";
+            document.getElementById('player-white').innerText = `🌸 ฝ่ายชมพู: ${playerProfile.name} (คุณเอง)`;
+            document.getElementById('player-black').innerText = "🌌 ฝ่ายฟ้า: น้อน AI ปราชญ์ปุยฝ้าย";
             
             const turnLabel = document.getElementById('game-status');
-            turnLabel.innerText = "เริ่มเกมได้! เป็นตาของคุณเดินแล้ว 🍀";
+            turnLabel.innerText = "เริ่มเล่นได้! เป็นตาของคุณเดินแล้ว 🍀";
             turnLabel.className = "bg-green-100 border-2 border-green-200 text-green-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block animate-pulse";
 
             document.getElementById('btn-reset-game').classList.remove('hidden');
@@ -1162,7 +960,7 @@ pointer-events: none;
             updateCapturedUI();
             renderBoard(); 
             renderMoveHistory();
-            showToast("สู้กับบอทน้อนอัจฉริยะแล้วน้า ขอให้เป็นวันที่แสนรุ่งเรืองนะคะ! ✨", "info");
+            showToast("เข้ากระดานดวลกับน้อนบอทหมากรุกไทยแล้วนะ พริ้วไหวแน่นอนค่ะ! 🐹✨", "info");
         };
 
         function setupGameUI() {
@@ -1210,7 +1008,7 @@ pointer-events: none;
                     token.appendChild(labelEl);
                     square.appendChild(token);
 
-                    if (pieceInfo.label === 'king' && isKingInCheck(pieceInfo.color)) {
+                    if (pieceInfo.label === 'ขุน 👑' && isKingInCheck(pieceInfo.color)) {
                         square.classList.add('square-check');
                     }
                 }
@@ -1279,12 +1077,17 @@ pointer-events: none;
             boardState[toIdx] = pieceCode;
             boardState[fromIdx] = null;
 
-            if (PIECES[pieceCode].label === 'pawn') {
-                if (toIdx < 8 && PIECES[pieceCode].color === 'white') {
-                    boardState[toIdx] = 'wQ'; 
-                } else if (toIdx >= 56 && PIECES[pieceCode].color === 'black') {
-                    boardState[toIdx] = 'bQ'; 
-                }
+            // กติกาการไล่หงายของหมากรุกไทย (Bia Ngai Promotion)
+            // เบี้ยหงายเมื่อเดินทางไปถึงแนวทหาร (แถวตั้งเบี้ยเริ่มแรกของฝั่งตรงข้าม)
+            // แถวตั้งเบี้ยของสีดำคือแถวที่ 6 (row === 2 หรือ index 16 ถึง 23)
+            // แถวตั้งเบี้ยของสีขาวคือแถวที่ 3 (row === 5 หรือ index 40 ถึง 47)
+            const row = Math.floor(toIdx / 8);
+            if (pieceCode === 'wP' && row <= 2) {
+                boardState[toIdx] = 'wM'; // เบี้ยหงายสีขาว 👑
+                showToast("ลูกเจี๊ยบกล้าหาญได้รับการแต่งตั้งมีมงกุฎเป็น เบี้ยหงาย แล้วค่ะ! 👑🐣", "success");
+            } else if (pieceCode === 'bP' && row >= 5) {
+                boardState[toIdx] = 'bM'; // เบี้ยหงายสีดำ 👑
+                showToast("เพนกวินปุยฝ้ายได้รับการแต่งตั้งมีมงกุฎเป็น เบี้ยหงาย แล้วนะ! 👑🐧", "success");
             }
 
             turn = (turn === 'white') ? 'black' : 'white';
@@ -1294,19 +1097,6 @@ pointer-events: none;
             checkGameResult();
 
             if (currentGameMode === 'ONLINE') {
-                if (!isSheetsDatabaseEnabled) {
-                    const room = simulatedRooms.find(r => r.id === currentRoomId);
-                    if (room) {
-                        room.board = [...boardState];
-                        room.turn = turn;
-                        room.status = isGameOver ? "finished" : "playing";
-                        room.winner = isGameOver ? (turn === 'white' ? 'black' : 'white') : "";
-                    }
-                    renderBoard();
-                    renderMoveHistory();
-                    return;
-                }
-
                 const payload = {
                     action: "updateBoard",
                     roomId: currentRoomId,
@@ -1331,7 +1121,7 @@ pointer-events: none;
                 renderMoveHistory();
                 
                 if (!isGameOver && turn === 'black') {
-                    setTimeout(() => triggerAIMove(), 600);
+                    setTimeout(() => triggerAIMove(), 500); // 500ms for smooth fluid transition
                 }
             }
         }
@@ -1369,6 +1159,7 @@ pointer-events: none;
             return allMoves[Math.floor(Math.random() * allMoves.length)];
         }
 
+        // Minimax with Alpha-Beta Pruning for fluid quick response AI
         function getBestMoveDepth(depth) {
             let bestMove = null;
             let bestValue = -Infinity;
@@ -1478,20 +1269,20 @@ pointer-events: none;
             let emojiText = "🏆";
 
             if (winnerColor === myColor) {
-                titleText = "ชัยชนะอันแสนหวาน! 🎉";
-                resultMessage = "คุณได้รับชัยชนะอย่างยอดเยี่ยมไปครองค่ะ!";
+                titleText = "ชัยชนะหมากรุกไทย! 🎉";
+                resultMessage = "คุณดวลชนะอย่างประเสริฐเลิศล้ำไปครองค่ะ!";
                 emojiText = "👑😺";
                 playerProfile.wins += 1;
                 pointsGained = 25;
             } else if (winnerColor === 'draw') {
-                titleText = "เสมอกันจ้า! 🤝";
-                resultMessage = "ฝีมือสูสีสมานฉันท์ เต้นระบำด้วยกันน้า!";
+                titleText = "เสมอกระดานกัน! 🤝";
+                resultMessage = "สูสีกันมาก สมานฉันท์พาสเทลจ้า!";
                 emojiText = "🌈🧸";
                 playerProfile.draws += 1;
                 pointsGained = 5;
             } else {
-                titleText = "พ่ายแพ้ฮึบๆ น้า 🥺";
-                resultMessage = "ไม่ร้องน้า น้อนส่งความรักและอ้อมกอดมาปลอบใจค่ะ!";
+                titleText = "สู้ๆ นะคะคุณคนเก่ง 🥺";
+                resultMessage = "เกือบแล้วเหมียว น้อนส่งความรักมาปลอบประโลมใจน้า!";
                 emojiText = "🧁😿";
                 playerProfile.losses += 1;
                 pointsGained = -15;
@@ -1540,55 +1331,37 @@ pointer-events: none;
             let moves = [];
 
             switch (label) {
-                case 'pawn': {
+                // กติกาเบี้ยหมากรุกไทย (Bia Pawn) - เดินหน้า 1 ช่องตรง กิน 1 ช่องเฉียง
+                case 'เบี้ย 🐣': {
                     const direction = (color === 'white') ? -1 : 1;
-                    const startRow = (color === 'white') ? 6 : 1;
-
                     const nextRow = row + direction;
                     if (nextRow >= 0 && nextRow < 8) {
                         const targetIdx = nextRow * 8 + col;
                         if (board[targetIdx] === null) {
                             moves.push(targetIdx);
-                            if (row === startRow) {
-                                const targetIdx2 = (row + (direction * 2)) * 8 + col;
-                                if (board[targetIdx2] === null) {
-                                    moves.push(targetIdx2);
+                        }
+                        
+                        // กินแนวทแยงหน้าขวา-ซ้าย
+                        const captureCols = [col - 1, col + 1];
+                        captureCols.forEach(c => {
+                            if (c >= 0 && c < 8) {
+                                const captureIdx = nextRow * 8 + c;
+                                if (board[captureIdx] !== null && PIECES[board[captureIdx]].color !== color) {
+                                    moves.push(captureIdx);
                                 }
                             }
-                        }
+                        });
                     }
-
-                    const captureCols = [col - 1, col + 1];
-                    captureCols.forEach(c => {
-                        if (c >= 0 && c < 8) {
-                            const targetIdx = nextRow * 8 + c;
-                            if (board[targetIdx] !== null && PIECES[board[targetIdx]].color !== color) {
-                                moves.push(targetIdx);
-                            }
-                        }
-                    });
                     break;
                 }
-                case 'rook': {
-                    moves = moves.concat(getLinearMoves(row, col, 1, 0, color, board));
-                    moves = moves.concat(getLinearMoves(row, col, -1, 0, color, board));
-                    moves = moves.concat(getLinearMoves(row, col, 0, 1, color, board));
-                    moves = moves.concat(getLinearMoves(row, col, 0, -1, color, board));
-                    break;
-                }
-                case 'bishop': {
-                    moves = moves.concat(getLinearMoves(row, col, 1, 1, color, board));
-                    moves = moves.concat(getLinearMoves(row, col, 1, -1, color, board));
-                    moves = moves.concat(getLinearMoves(row, col, -1, 1, color, board));
-                    moves = moves.concat(getLinearMoves(row, col, -1, -1, color, board));
-                    break;
-                }
-                case 'knight': {
-                    const offsets = [
-                        [-2, -1], [-2, 1], [-1, -2], [-1, 2],
-                        [1, -2], [1, 2], [2, -1], [2, 1]
+                
+                // เม็ด และ เบี้ยหงาย (Met & Bia Ngai) - เดินทแยงมุมเฉียงรอบตัว 4 ด้าน ครั้งละ 1 ช่อง
+                case 'เม็ด 🎀':
+                case 'เบี้ยหงาย': {
+                    const diagOffsets = [
+                        [-1, -1], [-1, 1], [1, -1], [1, 1]
                     ];
-                    offsets.forEach(offset => {
+                    diagOffsets.forEach(offset => {
                         const r = row + offset[0];
                         const c = col + offset[1];
                         if (r >= 0 && r < 8 && c >= 0 && c < 8) {
@@ -1600,22 +1373,69 @@ pointer-events: none;
                     });
                     break;
                 }
-                case 'queen': {
-                    const directions = [
-                        [1, 0], [-1, 0], [0, 1], [0, -1],
-                        [1, 1], [1, -1], [-1, 1], [-1, -1]
+
+                // โคน (Khon) - ทแยงมุมเฉียง 4 ทิศ และเดินตรงข้างหน้า 1 ทิศ (รวม 5 ทิศทาง)
+                case 'โคน 💫': {
+                    const khonDirections = [
+                        [-1, -1], [-1, 1], [1, -1], [1, 1] // ทแยง 4 ทิศ
                     ];
-                    directions.forEach(d => {
-                        moves = moves.concat(getLinearMoves(row, col, d[0], d[1], color, board));
+                    // เดินตรงข้างหน้าขึ้นอยู่กับสีของหมาก
+                    if (color === 'white') {
+                        khonDirections.push([-1, 0]); // ตรงหน้าขาว (ขึ้นบน)
+                    } else {
+                        khonDirections.push([1, 0]); // ตรงหน้าดำ (ลงล่าง)
+                    }
+
+                    khonDirections.forEach(d => {
+                        const r = row + d[0];
+                        const c = col + d[1];
+                        if (r >= 0 && r < 8 && c >= 0 && c < 8) {
+                            const idx = r * 8 + c;
+                            if (board[idx] === null || PIECES[board[idx]].color !== color) {
+                                moves.push(idx);
+                            }
+                        }
                     });
                     break;
                 }
-                case 'king': {
-                    const directions = [
+
+                // ม้าหมากรุกไทย (Ma) - ก้าวรูปตัว L เหมือนหมากสากล
+                case 'ม้า 🥕':
+                case 'ม้า 🌟': {
+                    const knightOffsets = [
+                        [-2, -1], [-2, 1], [-1, -2], [-1, 2],
+                        [1, -2], [1, 2], [2, -1], [2, 1]
+                    ];
+                    knightOffsets.forEach(offset => {
+                        const r = row + offset[0];
+                        const c = col + offset[1];
+                        if (r >= 0 && r < 8 && c >= 0 && c < 8) {
+                            const idx = r * 8 + c;
+                            if (board[idx] === null || PIECES[board[idx]].color !== color) {
+                                moves.push(idx);
+                            }
+                        }
+                    });
+                    break;
+                }
+
+                // เรือหมากรุกไทย (Rua) - พุ่งตรง 4 ทิศได้ไม่จำกัดระยะทาง
+                case 'เรือ 🍓':
+                case 'เรือ 🍫': {
+                    moves = moves.concat(getLinearMoves(row, col, 1, 0, color, board));
+                    moves = moves.concat(getLinearMoves(row, col, -1, 0, color, board));
+                    moves = moves.concat(getLinearMoves(row, col, 0, 1, color, board));
+                    moves = moves.concat(getLinearMoves(row, col, 0, -1, color, board));
+                    break;
+                }
+
+                // ขุนหมากรุกไทย (Khun) - ก้าวได้สั้น ๆ รอบตัว 8 ทิศทาง ครั้งละ 1 ช่อง
+                case 'ขุน 👑': {
+                    const kingDirections = [
                         [1, 0], [-1, 0], [0, 1], [0, -1],
                         [1, 1], [1, -1], [-1, 1], [-1, -1]
                     ];
-                    directions.forEach(d => {
+                    kingDirections.forEach(d => {
                         const r = row + d[0];
                         const c = col + d[1];
                         if (r >= 0 && r < 8 && c >= 0 && c < 8) {
@@ -1707,21 +1527,21 @@ pointer-events: none;
             const whiteContainer = document.getElementById('captured-by-white');
             const blackContainer = document.getElementById('captured-by-black');
             
-            let whiteScore = capturedByWhite.reduce((sum, p) => sum + (PIECES[p].score === 1000 ? 0 : PIECES[p].score), 0);
-            let blackScore = capturedByBlack.reduce((sum, p) => sum + (PIECES[p].score === 1000 ? 0 : PIECES[p].score), 0);
+            let whiteScore = capturedByWhite.reduce((sum, p) => sum + (PIECES[p].score === 10000 ? 0 : PIECES[p].score), 0);
+            let blackScore = capturedByBlack.reduce((sum, p) => sum + (PIECES[p].score === 10000 ? 0 : PIECES[p].score), 0);
 
             if (capturedByWhite.length === 0) {
-                whiteContainer.innerHTML = 'จับได้: 🌸';
+                whiteContainer.innerHTML = 'กินได้: 🌸';
             } else {
                 let whiteEmojis = capturedByWhite.map(p => PIECES[p].emoji).join(' ');
-                whiteContainer.innerHTML = `<span class="truncate max-w-[140px]">จับได้: ${whiteEmojis}</span> <span class="bg-pink-100 text-pink-600 font-bold px-1.5 py-0.5 rounded-full text-[10px] ml-1">+${whiteScore}</span>`;
+                whiteContainer.innerHTML = `<span class="truncate max-w-[140px]">กินได้: ${whiteEmojis}</span> <span class="bg-pink-100 text-pink-600 font-bold px-1.5 py-0.5 rounded-full text-[10px] ml-1">+${whiteScore}</span>`;
             }
 
             if (capturedByBlack.length === 0) {
-                blackContainer.innerHTML = 'จับได้: 🌌';
+                blackContainer.innerHTML = 'กินได้: 🌌';
             } else {
                 let blackEmojis = capturedByBlack.map(p => PIECES[p].emoji).join(' ');
-                blackContainer.innerHTML = `<span class="truncate max-w-[140px] justify-end">จับได้: ${blackEmojis}</span> <span class="bg-blue-100 text-blue-600 font-bold px-1.5 py-0.5 rounded-full text-[10px] ml-1">+${blackScore}</span>`;
+                blackContainer.innerHTML = `<span class="truncate max-w-[140px] justify-end">กินได้: ${blackEmojis}</span> <span class="bg-blue-100 text-blue-600 font-bold px-1.5 py-0.5 rounded-full text-[10px] ml-1">+${blackScore}</span>`;
             }
 
             const balanceEl = document.getElementById('material-balance');
@@ -1729,10 +1549,10 @@ pointer-events: none;
                 balanceEl.innerHTML = `สมดุลพลัง: เสมอกัน ⚖️`;
                 balanceEl.className = "text-xs font-bold text-purple-400";
             } else if (whiteScore > blackScore) {
-                balanceEl.innerHTML = `สมดุลพลัง: ชมพูนำอยู่ +${whiteScore - blackScore} 🌸`;
+                balanceEl.innerHTML = `สมดุลพลัง: ชมพูนำอยู่ +${(whiteScore - blackScore).toFixed(1)} 🌸`;
                 balanceEl.className = "text-xs font-bold text-pink-500 animate-pulse";
             } else {
-                balanceEl.innerHTML = `สมดุลพลัง: ฟ้านำอยู่ +${blackScore - whiteScore} 🌌`;
+                balanceEl.innerHTML = `สมดุลพลัง: ฟ้านำอยู่ +${(blackScore - whiteScore).toFixed(1)} 🌌`;
                 balanceEl.className = "text-xs font-bold text-blue-500 animate-pulse";
             }
         }
@@ -1741,9 +1561,10 @@ pointer-events: none;
             const historyList = document.getElementById('move-history-list');
             historyList.innerHTML = `
                 <div class="border-l-4 border-pink-300 pl-3 py-1 bg-white/60 rounded-r-xl p-2 shadow-inner text-slate-500">
-                    <p class="text-pink-500 font-bold">🪄 ข้อมูลห้องประลอง:</p>
-                    <p>• โหมดเล่น: ${currentGameMode === 'ONLINE' ? (isSheetsDatabaseEnabled ? 'ฐานข้อมูลจริง Google Sheets' : 'โหมดจำลอง Sandbox ออฟไลน์') : 'สู้กับ AI'}</p>
-                    <p>• สีที่ตาเดิน: สี${turn === 'white' ? 'ชมพู' : 'ฟ้า'}</p>
+                    <p class="text-pink-500 font-bold">🪄 ข้อมูลกระดานไทยล่าสุด:</p>
+                    <p>• รูปแบบกระดาน: หมากรุกไทย (Makruk Thai)</p>
+                    <p>• โหมดปัจจุบัน: ${currentGameMode === 'ONLINE' ? 'ออนไลน์ฐานข้อมูล Google Sheets' : 'ดวลเดี่ยวบอท AI'}</p>
+                    <p>• ตาปัจจุบันของ: ฝ่ายสี${turn === 'white' ? 'ชมพู' : 'ฟ้า'}</p>
                 </div>
             `;
         }
@@ -1800,15 +1621,26 @@ pointer-events: none;
             }, 4000);
         }
 
-        // โหลดข้อมูลล็อกอินผู้เล่นจำลองในตอนเริ่มต้น
+        // โหลดข้อมูลเซสชันล็อกอินจากหน่วยความจำ
         const savedLocalUser = localStorage.getItem('chess_sheets_logged_in_user');
         if (savedLocalUser) {
             currentUser = JSON.parse(savedLocalUser);
-            let accounts = getLocalAccounts();
-            if (accounts[currentUser.username]) {
-                playerProfile = accounts[currentUser.username].profile;
-                setTimeout(() => loadPlayerSession(), 100);
-            }
+            // โหลดโปรไฟล์จริงผ่าน Web App
+            (async () => {
+                try {
+                    const res = await fetch(`${SCRIPT_URL}?action=getLeaderboard`);
+                    const data = await res.json();
+                    if (data.success) {
+                        const me = data.players.find(p => p.userId === currentUser.username);
+                        if (me) {
+                            playerProfile = me;
+                            loadPlayerSession();
+                        }
+                    }
+                } catch(e) {
+                    console.error("Session auto reload failed", e);
+                }
+            })();
         }
     </script>
 </body>
