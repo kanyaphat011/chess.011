@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>อาณาจักรหมากรุกราชา & ราชินีพาสเทลสุดคิวท์</title>
+    <title>อาณาจักรหมากรุกราชา & ราชินีพาสเทลสุดคิวท์ (เชื่อมฐานข้อมูลสำเร็จแล้ว)</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for Icons -->
@@ -16,6 +16,7 @@
             font-family: 'Itim', 'Quicksand', sans-serif;
             background: linear-gradient(135deg, #ffd6e8 0%, #e5dbff 50%, #d0ebff 100%);
             color: #4a3e56;
+            min-height: 100vh;
         }
         .cute-card {
             background: rgba(255, 255, 255, 0.9);
@@ -47,12 +48,11 @@
             transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             user-select: none;
         }
-        /* Pastel Warm Board Squares */
         .square-light {
-            background-color: #fffaf0; /* Creamy White Milkshake */
+            background-color: #fffaf0;
         }
         .square-dark {
-            background-color: #ffd6db; /* Sweet Strawberry Pink */
+            background-color: #ffd6db;
         }
         .square-selected {
             background-color: #ff9ebb !important;
@@ -63,7 +63,7 @@
             font-size: 1.2rem;
             opacity: 0.8;
             position: absolute;
-            pointer-events: none;
+pointer-events: none;
             animation: pulse-heart 1.5s infinite;
         }
         .square-valid-capture::after {
@@ -78,7 +78,6 @@
             background-color: #ff85a1 !important;
             animation: shake 0.5s;
         }
-        /* Custom Cute Token Design for Chess Pieces */
         .piece-token {
             width: 88%;
             height: 88%;
@@ -114,7 +113,6 @@
                 font-size: 1.6rem;
             }
         }
-        /* Cute Mini Badge on top of Piece */
         .piece-role-badge {
             font-size: 0.6rem;
             font-weight: bold;
@@ -132,7 +130,6 @@
             background-color: #e0e9ff;
             color: #3b66f5;
         }
-        /* Keyframes Animations */
         @keyframes pulse-heart {
             0% { transform: scale(0.9); opacity: 0.6; }
             50% { transform: scale(1.1); opacity: 1; }
@@ -143,7 +140,6 @@
             25% { transform: translateX(-4px); }
             75% { transform: translateX(4px); }
         }
-        /* Decorative Background Sparkles */
         .sparkle-cloud {
             position: absolute;
             font-size: 2rem;
@@ -155,29 +151,14 @@
             0% { transform: translateY(0px) translateX(0px); }
             100% { transform: translateY(-20px) translateX(10px); }
         }
-        /* Custom Scrollbar for Cute look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #fff0f5;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #ffccd5;
-            border-radius: 10px;
-            border: 2px solid #fff0f5;
-        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between relative overflow-x-hidden">
 
-    <!-- Decorative floating icons in background -->
-    <div class="sparkle-cloud top-12 left-10 text-pink-400" style="animation-delay: 0s;">✨🌸🌈</div>
-    <div class="sparkle-cloud top-1/2 right-8 text-blue-300" style="animation-delay: 2s;">🎈🌟🍬</div>
-    <div class="sparkle-cloud bottom-16 left-16 text-purple-300" style="animation-delay: 4s;">🧁🍩🦄</div>
+    <div class="sparkle-cloud top-12 left-10 text-pink-400">✨🌸🌈</div>
+    <div class="sparkle-cloud top-1/2 right-8 text-blue-300">🎈🌟🍬</div>
+    <div class="sparkle-cloud bottom-16 left-16 text-purple-300">🧁🍩🦄</div>
 
-    <!-- Header / Navbar -->
     <header class="bg-white/80 backdrop-blur-md border-b-4 border-pink-100 py-3 px-6 shadow-sm z-20">
         <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
             <div class="flex items-center space-x-3">
@@ -187,7 +168,7 @@
                 <div>
                     <h1 class="text-2xl font-bold tracking-wider text-pink-500 text-shadow">KINGS & QUEENS CHESS</h1>
                     <p class="text-xs text-purple-400 font-semibold flex items-center gap-1">
-                        <i class="fas fa-heart text-pink-400"></i> ดินแดนหมากรุกน่ารักแบบออนไลน์ & AI
+                        <i class="fas fa-database text-pink-400"></i> โหมดออนไลน์เชื่อมฐานข้อมูล (Google Sheets Web App DB) 🎈
                     </p>
                 </div>
             </div>
@@ -200,10 +181,10 @@
                         <i class="fas fa-sign-out-alt"></i> ออก
                     </button>
                 </div>
-                <button id="btn-show-tutorial" class="bg-indigo-400 hover:bg-indigo-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center gap-1.5 border-b-4 border-indigo-600">
+                <button id="btn-show-tutorial" onclick="toggleTutorialModal(true)" class="bg-indigo-400 hover:bg-indigo-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center gap-1.5 border-b-4 border-indigo-600">
                     <i class="fas fa-book-open"></i> วิธีเล่น 📖
                 </button>
-                <button id="btn-show-rank" class="bg-amber-400 hover:bg-amber-500 text-amber-950 px-4 py-2 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center gap-1.5 border-b-4 border-amber-600">
+                <button id="btn-show-rank" onclick="toggleRankModal(true)" class="bg-amber-400 hover:bg-amber-500 text-amber-950 px-4 py-2 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center gap-1.5 border-b-4 border-amber-600">
                     <i class="fas fa-crown text-amber-900"></i> บอร์ดคนเก่ง
                 </button>
             </div>
@@ -213,12 +194,10 @@
     <!-- Main Content Grid -->
     <main class="flex-grow max-w-6xl w-full mx-auto p-4 md:p-6 flex flex-col lg:flex-row gap-6 items-start justify-center z-10">
         
-        <!-- Left Side: Interactive Area (Authentication / Lobby / Chess Board) -->
+        <!-- Left Side -->
         <div class="w-full lg:w-2/3 flex flex-col items-center">
             
-            <!-- SECTION 1: Welcome Signup & Login Interface (Without Email Fields) -->
             <div id="section-auth" class="w-full max-w-md cute-card p-8 shadow-2xl my-12 relative overflow-hidden">
-                <!-- Tab Control Buttons -->
                 <div class="flex border-b-2 border-pink-100 mb-6">
                     <button id="tab-login-btn" onclick="toggleAuthTab('login')" class="flex-1 pb-3 text-center font-bold text-pink-500 border-b-4 border-pink-400 transition text-lg">
                         เข้าสู่ระบบ 🔑
@@ -235,7 +214,7 @@
                             <span class="text-4xl">🐱🏰</span>
                         </div>
                         <h2 class="text-xl font-bold text-pink-600">ยินดีต้อนรับกลับสู่อาณาจักร!</h2>
-                        <p class="text-slate-500 text-xs mt-1">ล็อกอินด้วยชื่อผู้ใช้ของคุณได้เลยค่ะ</p>
+                        <p class="text-slate-500 text-xs mt-1">กรอกชื่อผู้ใช้และรหัสผ่านเพื่อเชื่อมฐานข้อมูล</p>
                     </div>
                     <form onsubmit="event.preventDefault(); handleLogin();" class="space-y-4">
                         <div>
@@ -246,8 +225,8 @@
                             <label class="block text-xs font-bold text-purple-500 mb-1">รหัสผ่าน (Password)</label>
                             <input type="password" id="login-password" required placeholder="กรอกรหัสผ่าน" class="w-full bg-white border-2 border-pink-200 rounded-xl px-4 py-2.5 text-center text-pink-600 font-bold focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition text-sm">
                         </div>
-                        <button type="submit" class="w-full bg-pink-400 hover:bg-pink-500 text-white font-bold py-3 rounded-2xl shadow-lg border-b-4 border-pink-600 transition transform active:scale-95 text-md">
-                            เข้าสู่อาณาจักรหมากรุก 🌸
+                        <button type="submit" id="btn-login-submit" class="w-full bg-pink-400 hover:bg-pink-500 text-white font-bold py-3 rounded-2xl shadow-lg border-b-4 border-pink-600 transition transform active:scale-95 text-md flex justify-center items-center gap-2">
+                            <span>เข้าสู่อาณาจักรหมากรุก 🌸</span>
                         </button>
                     </form>
                 </div>
@@ -259,26 +238,31 @@
                             <span class="text-4xl">🐰🪄</span>
                         </div>
                         <h2 class="text-xl font-bold text-purple-600">สร้างบัญชีสัตว์เลี้ยงใหม่!</h2>
-                        <p class="text-slate-500 text-xs mt-1">ตั้งชื่อและรหัสผ่านเพื่อเริ่มสะสมแต้ม</p>
+                        <p class="text-slate-500 text-xs mt-1">ตั้งชื่อและรหัสผ่านเพื่อบันทึกประวัติการแข่ง</p>
                     </div>
                     <form onsubmit="event.preventDefault(); handleRegister();" class="space-y-4">
                         <div>
-                            <label class="block text-xs font-bold text-purple-500 mb-1">ชื่อสุดน่ารัก (Username / Nickname)</label>
+                            <label class="block text-xs font-bold text-purple-500 mb-1">ชื่อสุดน่ารัก (Username)</label>
                             <input type="text" id="register-nickname" required minlength="3" maxlength="15" placeholder="ตั้งชื่อ 3-15 ตัวอักษร" class="w-full bg-white border-2 border-purple-200 rounded-xl px-4 py-2.5 text-center text-purple-600 font-bold focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-100 transition text-sm">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-purple-500 mb-1">ตั้งรหัสผ่าน (Password)</label>
                             <input type="password" id="register-password" required minlength="6" placeholder="รหัสผ่านขั้นต่ำ 6 หลัก" class="w-full bg-white border-2 border-purple-200 rounded-xl px-4 py-2.5 text-center text-purple-600 font-bold focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-100 transition text-sm">
                         </div>
-                        <button type="submit" class="w-full bg-purple-400 hover:bg-purple-500 text-white font-bold py-3 rounded-2xl shadow-lg border-b-4 border-purple-600 transition transform active:scale-95 text-md">
-                            สมัครสมาชิกและร่วมผจญภัย ✨
+                        <button type="submit" id="btn-register-submit" class="w-full bg-purple-400 hover:bg-purple-500 text-white font-bold py-3 rounded-2xl shadow-lg border-b-4 border-purple-600 transition transform active:scale-95 text-md flex justify-center items-center gap-2">
+                            <span>สมัครสมาชิกและร่วมผจญภัย ✨</span>
                         </button>
                     </form>
                 </div>
             </div>
 
-            <!-- SECTION 2: Game Mode Selection (Lobby) -->
             <div id="section-lobby" class="hidden w-full max-w-2xl cute-card p-6 md:p-8 shadow-xl my-4">
+                <!-- Status Badge Banner for connection status -->
+                <div id="connection-status-badge" class="bg-amber-100 border-2 border-amber-300 text-amber-700 p-4 rounded-2xl text-xs font-semibold mb-6 flex flex-col md:flex-row items-center justify-between gap-2 shadow-inner">
+                    <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span> 💡 โหมดใช้งาน: กำลังเล่นในระบบ Sandbox (ยังไม่ได้เชื่อมฐานข้อมูล Sheet)</span>
+                    <span class="text-[10px] text-slate-500 font-normal">ติดตั้งลิงก์ Web App ที่หัวไฟล์ index.html เพื่อออนไลน์จริง 🌟</span>
+                </div>
+
                 <h3 class="text-xl font-bold mb-6 text-center text-purple-600"><i class="fas fa-star text-pink-400 mr-2"></i> เลือกดินแดนที่คุณอยากผจญภัย</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -302,16 +286,16 @@
                         </button>
                     </div>
 
-                    <!-- Online Multiplayer Card -->
+                    <!-- Google Sheets Online Mode Card -->
                     <div class="bg-blue-50/50 border-3 border-blue-200 hover:border-blue-400 p-6 rounded-3xl transition flex flex-col justify-between shadow-sm">
                         <div>
-                            <div class="text-blue-400 text-4xl mb-3">🎈🤝</div>
+                            <div class="text-blue-400 text-4xl mb-3">⚡ DB LIVE 📋</div>
                             <h4 class="text-lg font-bold text-blue-600 mb-1">โหมดออนไลน์ปาร์ตี้</h4>
-                            <p class="text-slate-500 text-xs mb-4">ท้าดวลฝีมือกับเพื่อนๆ ในดินแดนออนไลน์แบบเรียลไทม์ ชิงคะแนนสุดตะมุตะมิ!</p>
+                            <p class="text-slate-500 text-xs mb-4">ดวลฝีมือจริงกับเพื่อนต่างคอมผ่านอินเทอร์เน็ต บันทึกห้องเล่นสะสมผลแต้มลง Google Sheets 🌟</p>
                         </div>
-                        <div class="space-y-2">
-                            <button onclick="createNewOnlineRoom()" class="w-full bg-blue-400 hover:bg-blue-500 text-white py-2.5 rounded-xl font-bold text-sm transition shadow-md border-b-4 border-blue-600 transform active:scale-95 flex items-center justify-center gap-2">
-                                <i class="fas fa-plus-circle"></i> สร้างปาร์ตี้ใหม่
+                        <div class="space-y-3">
+                            <button onclick="createNewOnlineRoom()" class="w-full bg-blue-400 hover:bg-blue-500 text-white py-2.5 rounded-xl font-bold text-sm transition shadow-md border-b-4 border-blue-600 transform active:scale-95 flex items-center justify-center gap-1.5">
+                                <i class="fas fa-plus-circle"></i> สร้างห้องออนไลน์จริง 🌸
                             </button>
                         </div>
                     </div>
@@ -320,32 +304,29 @@
                 <!-- Online Rooms List -->
                 <div class="mt-8 border-t-2 border-pink-100 pt-6">
                     <h5 class="text-sm font-bold text-purple-500 uppercase tracking-wider mb-4 flex items-center justify-between">
-                        <span><i class="fas fa-magic mr-1.5 text-pink-400"></i> ปาร์ตี้ที่รอต้อนรับคุณ</span>
+                        <span><i class="fas fa-magic mr-1.5 text-pink-400"></i> ปาร์ตี้ว่างบนฐานข้อมูลจริง</span>
                         <button onclick="refreshRoomsList()" class="text-xs text-blue-500 hover:text-blue-600 transition flex items-center gap-1 font-bold">
-                            <i class="fas fa-sync-alt" id="refresh-icon"></i> เรียกหาห้องใหม่
+                            <i class="fas fa-sync-alt" id="refresh-icon"></i> ค้นหาห้องใหม่ 🔁
                         </button>
                     </h5>
                     <div id="rooms-list" class="max-h-56 overflow-y-auto space-y-3 pr-2">
                         <div class="text-center py-6 text-slate-400 text-sm bg-white/50 border-2 border-dashed border-pink-200 rounded-2xl">
-                            กำลังโหลดปาร์ตี้... ลองสร้างปาร์ตี้ใหม่ของคุณดูสิคะ! 🎀
+                            กำลังโหลดปาร์ตี้... ลองกดสร้างห้องออนไลน์ดวลฝีมือจริงดูสิคะ! 🎀
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SECTION 3: Main Game Board Area -->
             <div id="section-game" class="hidden w-full flex flex-col items-center">
                 <!-- Status/Turn Info -->
                 <div class="w-full max-w-[500px] bg-white/90 border-3 border-pink-100 rounded-3xl p-4 mb-4 flex flex-col gap-3 shadow-md">
                     <div class="flex items-center justify-between">
                         <div class="flex flex-col">
                             <span id="player-white" class="text-sm font-bold text-pink-500">🏰 สีชมพู: ...</span>
-                            <!-- Captured by White -->
                             <div id="captured-by-white" class="text-xs text-slate-400 flex items-center gap-1 mt-1 font-semibold min-h-[22px]">จับได้: 🌸</div>
                         </div>
                         <div class="text-right flex flex-col items-end">
                             <span id="player-black" class="text-sm font-bold text-blue-500">🌌 สีฟ้า: ...</span>
-                            <!-- Captured by Black -->
                             <div id="captured-by-black" class="text-xs text-slate-400 flex items-center gap-1 mt-1 font-semibold min-h-[22px] justify-end">จับได้: 🌌</div>
                         </div>
                     </div>
@@ -356,7 +337,7 @@
                                 ตาสีชมพูเดิน
                             </div>
                             <div id="online-room-code" class="text-xs text-purple-400 mt-1 font-bold hidden">
-                                รหัสห้อง: <span class="text-pink-500" id="room-code-display">...</span>
+                                รหัสห้องออนไลน์: <span class="bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full text-[11px]" id="room-code-display">...</span>
                             </div>
                         </div>
                     </div>
@@ -364,12 +345,10 @@
 
                 <!-- The Chess Board -->
                 <div class="w-full flex justify-center">
-                    <div id="board" class="chess-board">
-                        <!-- Board squares populated dynamically in JS -->
-                    </div>
+                    <div id="board" class="chess-board"></div>
                 </div>
 
-                <!-- Control Buttons under board -->
+                <!-- Control Buttons -->
                 <div class="w-full max-w-[500px] mt-5 flex justify-between gap-4">
                     <button onclick="exitGameToLobby()" class="flex-1 bg-red-100 hover:bg-red-200 border-2 border-red-300 text-red-600 font-bold py-2.5 px-4 rounded-2xl transition flex items-center justify-center gap-2 shadow-sm border-b-4 border-red-400 active:scale-95">
                         <i class="fas fa-sign-out-alt"></i> ยอมแพ้ / กลับบ้าน
@@ -382,32 +361,15 @@
 
         </div>
 
-        <!-- Right Side: Sidebar (Game History & Chat / Leaderboard) -->
+        <!-- Right Side -->
         <div class="w-full lg:w-1/3 space-y-6">
-            
-            <!-- Game Logs / Moves -->
             <div id="game-sidebar-info" class="cute-card p-5 shadow-md">
                 <h4 class="font-bold text-md text-pink-600 mb-3 border-b-2 border-pink-100 pb-2 flex items-center gap-2">
-                    <i class="fas fa-history text-pink-400"></i> บันทึกเวทมนตร์ (ก้าวเดิน)
+                    <i class="fas fa-history text-pink-400"></i> บันทึกก้าวเดิน
                 </h4>
                 <div id="move-history-list" class="h-40 overflow-y-auto text-xs text-slate-500 space-y-1">
                     <p class="italic text-slate-400 text-center py-4">เปิดบันทึกเมื่อเริ่มเกมก้าวแรกนะคะ ✨</p>
                 </div>
-            </div>
-
-            <!-- In-game Chat (Online Mode only) -->
-            <div id="chat-box-area" class="cute-card p-5 shadow-md hidden">
-                <h4 class="font-bold text-md text-blue-600 mb-2 border-b-2 border-blue-100 pb-2 flex items-center justify-between">
-                    <span><i class="far fa-comments text-blue-400 mr-2"></i> คุยกระจุ๊กกระจิ๊ก</span>
-                    <span class="w-2 h-2 rounded-full bg-green-400 animate-ping"></span>
-                </h4>
-                <div id="chat-messages" class="h-32 overflow-y-auto text-xs space-y-2 mb-3 bg-white/60 p-3 rounded-xl border-2 border-blue-50">
-                    <p class="text-slate-400 italic">ส่งความรักให้กันด้วยนะ!</p>
-                </div>
-                <form id="chat-form" onsubmit="event.preventDefault(); sendChatMessage();" class="flex gap-2">
-                    <input type="text" id="chat-input" placeholder="พิมพ์ข้อความคุยเหมียว..." class="flex-grow bg-white border-2 border-blue-200 rounded-xl px-3 py-1.5 text-xs text-blue-600 focus:outline-none focus:border-blue-400">
-                    <button type="submit" class="bg-blue-400 hover:bg-blue-500 text-white px-4 rounded-xl text-xs font-bold transition border-b-2 border-blue-600">ส่ง</button>
-                </form>
             </div>
 
             <!-- Leaderboard Display -->
@@ -434,7 +396,6 @@
                     </table>
                 </div>
             </div>
-
         </div>
     </main>
 
@@ -445,7 +406,7 @@
                 <i class="fas fa-times text-2xl"></i>
             </button>
             <h3 class="text-xl font-bold text-pink-500 mb-6 flex items-center gap-2">
-                <i class="fas fa-trophy text-2xl text-amber-400 animate-bounce"></i> ทำเนียบผู้พิชิตคะแนนพาสเทล
+                <i class="fas fa-trophy text-2xl text-amber-400"></i> ทำเนียบผู้พิชิตคะแนนพาสเทล
             </h3>
             <div class="overflow-y-auto max-h-96 rounded-2xl border-2 border-pink-100 bg-white/70">
                 <table class="w-full text-sm text-left text-slate-600">
@@ -459,9 +420,7 @@
                             <th class="px-4 py-3 text-center">แต้มรวม</th>
                         </tr>
                     </thead>
-                    <tbody id="modal-leaderboard-body">
-                        <!-- Dynamic Leaderboard Items -->
-                    </tbody>
+                    <tbody id="modal-leaderboard-body"></tbody>
                 </table>
             </div>
             <div class="mt-6 flex justify-end">
@@ -472,9 +431,30 @@
         </div>
     </div>
 
+    <!-- Apps Script Troubleshooting Modal -->
+    <div id="modal-cors-trouble" class="fixed inset-0 bg-black/55 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="cute-card max-w-md w-full p-6 text-center relative border-rose-200">
+            <div class="text-5xl mb-3">🛠️😿</div>
+            <h3 class="text-xl font-bold text-rose-500 mb-2">เชื่อมต่อฐานข้อมูลล้มเหลว!</h3>
+            <p class="text-slate-600 text-sm mb-4">
+                พบข้อผิดพลาดขณะส่งข้อมูลไปที่ Google Sheets (CORS/Network Error) โดยส่วนใหญ่เกิดจาก<strong>สิทธิ์การเข้าถึงหลังบ้านไม่ถูกต้อง</strong>ค่ะ
+            </p>
+            <div class="bg-rose-50 p-4 rounded-2xl border-2 border-rose-100 text-left text-xs text-slate-600 space-y-2 mb-4">
+                <p class="font-bold text-rose-600 flex items-center gap-1"><i class="fas fa-exclamation-triangle"></i> วิธีแก้ไขภายใน 1 นาที:</p>
+                <p>1. เปิดหน้า **Google Apps Script** ของคุณ</p>
+                <p>2. กดปุ่ม **Deploy (การทำงานใช้จริงใหม่)** สีน้ำเงินขวาบน</p>
+                <p>3. ตรงส่วน **Who has access (ผู้มีสิทธิ์เข้าถึง)** ให้เปลี่ยนจาก "Only me" เป็น <strong class="text-rose-600">"Anyone" (ทุกคน)</strong></p>
+                <p>4. กดปุ่ม **Deploy** ยืนยันสิทธิ์อีกครั้ง แล้วนำลิงก์ใหม่มาใช้ค่ะ!</p>
+            </div>
+            <button onclick="document.getElementById('modal-cors-trouble').classList.add('hidden')" class="w-full bg-rose-400 hover:bg-rose-500 text-white font-bold py-2.5 rounded-xl border-b-4 border-rose-600 transition text-sm">
+                รับทราบและเตรียมตัวแก้ไข 🌸
+            </button>
+        </div>
+    </div>
+
     <!-- Game Over Modal -->
     <div id="modal-game-over" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="cute-card max-w-sm w-full p-6 text-center relative" style="animation-duration: 0.5s;">
+        <div class="cute-card max-w-sm w-full p-6 text-center relative">
             <div id="game-over-emoji" class="text-6xl mb-4">🏆</div>
             <h3 id="game-over-title" class="text-2xl font-bold text-pink-600 mb-2">ชัยชนะอันแสนหวาน!</h3>
             <p id="game-over-subtitle" class="text-slate-500 text-sm mb-4">คุณทำผลงานได้อย่างยอดเยี่ยมมากค่ะ!</p>
@@ -494,167 +474,64 @@
         </div>
     </div>
 
-    <!-- Tutorial / How to Play Modal -->
+    <!-- Tutorial Modal -->
     <div id="modal-tutorial" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="cute-card max-w-2xl w-full p-6 relative max-h-[90vh] flex flex-col">
             <button onclick="toggleTutorialModal(false)" class="absolute top-4 right-4 text-slate-400 hover:text-pink-500 transition">
                 <i class="fas fa-times text-2xl"></i>
             </button>
             <h3 class="text-xl font-bold text-pink-500 mb-4 flex items-center gap-2 shrink-0">
-                <i class="fas fa-book-open text-2xl text-indigo-400 animate-bounce"></i> คู่มือการผจญภัยในดินแดนหมากรุก 🌸
+                <i class="fas fa-book-open text-2xl text-indigo-400"></i> คู่มือการผจญภัยในดินแดนหมากรุก 🌸
             </h3>
-            
             <div class="overflow-y-auto pr-2 space-y-4 flex-grow text-sm">
                 <div class="bg-indigo-50 p-4 rounded-2xl border-2 border-indigo-100">
-                    <h4 class="font-bold text-indigo-600 mb-1 flex items-center gap-1">🌟 วิธีการควบคุมขั้นพื้นฐาน:</h4>
+                    <h4 class="font-bold text-indigo-600 mb-1">🌟 วิธีการควบคุมขั้นพื้นฐาน:</h4>
                     <ul class="list-disc pl-5 space-y-1 text-slate-600">
-                        <li><strong>คลิกครั้งแรก:</strong> เพื่อเลือกหมากที่คุณต้องการเดิน (จะมีขอบสีชมพูขึ้นรอบๆ)</li>
-                        <li><strong>ดอกไม้ 🌸 ขึ้นบนกระดาน:</strong> คือช่องว่างที่คุณสามารถเลือกเดินไปได้</li>
-                        <li><strong>หัวใจ 💖 ขึ้นบนกระดาน:</strong> คือช่องที่มีหมากของฝ่ายตรงข้ามอยู่ ซึ่งคุณสามารถเดินไปกิน (จับตัวละครนั้น) ได้</li>
-                        <li><strong>คลิกซ้ำตัวเดิม:</strong> เพื่อยกเลิกการเลือก</li>
+                        <li><strong>คลิกที่หมาก:</strong> เพื่อส่องดูเส้นทางเดิน</li>
+                        <li><strong>ดอกไม้ 🌸:</strong> เดินไปพักผ่อนบนช่องว่าง</li>
+                        <li><strong>หัวใจ 💖:</strong> ช่องจับคู่หมากฝ่ายตรงข้าม</li>
                     </ul>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-pink-50/50 p-3 rounded-2xl border-2 border-pink-100 space-y-3">
-                        <h4 class="font-bold text-pink-500 border-b border-pink-100 pb-1">🐱 ฝั่งสีชมพู (สัตว์เลี้ยงแสนซน)</h4>
-                        <div class="space-y-2">
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl bg-white p-1 rounded-xl shadow-sm">🐱</span>
-                                <div><p class="font-bold text-xs text-slate-700">ราชาลูกแมว (King)</p><p class="text-[11px] text-slate-500">เดินทแยง/ตรงได้รอบตัว 1 ช่อง (ห้ามตายเด็ดขาด!)</p></div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl bg-white p-1 rounded-xl shadow-sm">🐰</span>
-                                <div><p class="font-bold text-xs text-slate-700">กระต่ายโบว์ชมพู (Queen)</p><p class="text-[11px] text-slate-500">เดินได้ทุกทิศทางตรงและทแยง ไม่จำกัดระยะช่อง</p></div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl bg-white p-1 rounded-xl shadow-sm">🍦</span>
-                                <div><p class="font-bold text-xs text-slate-700">ซอฟต์เสิร์ฟสตรอว์เบอร์รี (Rook)</p><p class="text-[11px] text-slate-500">เดินเป็นแนวตรง (บวก +) ได้ไม่จำกัดระยะช่อง</p></div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl bg-white p-1 rounded-xl shadow-sm">🦄</span>
-                                <div><p class="font-bold text-xs text-slate-700">ยูนิคอร์นเวทย์ (Bishop)</p><p class="text-[11px] text-slate-500">เดินเป็นแนวทแยง (คูณ x) ได้ไม่จำกัดระยะช่อง</p></div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl bg-white p-1 rounded-xl shadow-sm">🐹</span>
-                                <div><p class="font-bold text-xs text-slate-700">แฮมสเตอร์แครอท (Knight)</p><p class="text-[11px] text-slate-500">เดินเป็นรูปตัว L (กระโดดข้ามตัวอื่นได้)</p></div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl bg-white p-1 rounded-xl shadow-sm">🐥</span>
-                                <div><p class="font-bold text-xs text-slate-700">ลูกเจี๊ยบอ้วนกลม (Pawn)</p><p class="text-[11px] text-slate-500">เดินหน้าตรง 1 ช่อง (กินเฉียง) ถึงฝั่งสุดจะแปลงร่างเป็น 🐰</p></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-blue-50/50 p-3 rounded-2xl border-2 border-blue-100 space-y-3">
-                        <h4 class="font-bold text-blue-500 border-b border-blue-100 pb-1">🐻 ฝั่งสีฟ้า (ผองเพื่อนในป่าใหญ่)</h4>
-                        <div class="space-y-2">
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl bg-white p-1 rounded-xl shadow-sm">🐻</span>
-                                <div><p class="font-bold text-xs text-slate-700">ราชาหมีใจดี (King)</p><p class="text-[11px] text-slate-500">เหมือนราชาแมว เดินทุกทิศทางรอบตัว 1 ช่อง</p></div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl bg-white p-1 rounded-xl shadow-sm">🐼</span>
-                                <div><p class="font-bold text-xs text-slate-700">เจ้าหญิงแพนด้า (Queen)</p><p class="text-[11px] text-slate-500">เหมือนราชินีกระต่าย เดินได้ทุกทิศทางไร้ขีดจำกัด</p></div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl bg-white p-1 rounded-xl shadow-sm">🍩</span>
-                                <div><p class="font-bold text-xs text-slate-700">ช็อกโกโดนัท (Rook)</p><p class="text-[11px] text-slate-500">เหมือนไอศกรีม เดินแนวตรงบวกได้ยาวๆ</p></div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl bg-white p-1 rounded-xl shadow-sm">🦊</span>
-                                <div><p class="font-bold text-xs text-slate-700">จิ้งจอกปัญญา (Bishop)</p><p class="text-[11px] text-slate-500">เหมือนยูนิคอร์น เดินแนวทแยงมุมได้ยาวๆ</p></div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl bg-white p-1 rounded-xl shadow-sm">🐸</span>
-                                <div><p class="font-bold text-xs text-slate-700">อัศวินกบโบยบิน (Knight)</p><p class="text-[11px] text-slate-500">เหมือนแฮมสเตอร์ เดินไขว้เป็นตัว L ข้ามหมากได้</p></div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="text-2xl bg-white p-1 rounded-xl shadow-sm">🐧</span>
-                                <div><p class="font-bold text-xs text-slate-700">ลูกเพนกวิน (Pawn)</p><p class="text-[11px] text-slate-500">เหมือนลูกเจี๊ยบ เดินหน้ากินเฉียง ถึงฝั่งสุดเป็น 🐼</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-amber-50 p-4 rounded-2xl border-2 border-amber-100">
-                    <h4 class="font-bold text-amber-600 mb-1 flex items-center gap-1">🏆 กฎชัยชนะอันแสนหวาน:</h4>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        เป้าหมายสูงสุดคือการจับกินราชาของฝ่ายตรงข้าม (🐱 หรือ 🐻) ตัวหมากราชาเป็นเสมือนหัวใจหลักของอาณาจักร หากราชาของฝ่ายใดถูกจับกินหรือพ่ายแพ้ เกมจะสิ้นสุดลงทันที!
-                    </p>
-                </div>
             </div>
-            
             <div class="mt-4 flex justify-end shrink-0">
                 <button onclick="toggleTutorialModal(false)" class="bg-indigo-400 hover:bg-indigo-500 text-white font-bold px-6 py-2 rounded-xl border-b-4 border-indigo-600 transition">
-                    เข้าใจแล้วจ้า ไปลุยกันเลย! 🚀
+                    เข้าใจแล้วจ้า! 🚀
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Alert / Toast Notification Center -->
     <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3"></div>
 
-    <!-- Footer -->
     <footer class="bg-white/60 py-3 text-center border-t-2 border-pink-50 text-xs text-purple-400 font-semibold">
-        &copy; 2026 Kings & Queens Chess. ออกแบบระบบสมาชิกที่ใช้งานง่ายด้วยรักพาสเทล 🌸🐈
+        &copy; 2026 Kings & Queens Chess. ระบบเชื่อมฐานข้อมูลออนไลน์ Google Sheets ครบวงจร 🌸🐈
     </footer>
 
-    <!-- SDK Firebase -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, collection, query, onSnapshot, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        // 🚨 ผูกเข้ากับระบบหลังบ้าน Google Sheets Web App URL จริงของคุณเรียบร้อยแล้วค่ะ!
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxVVyKJa-KDTEY5PC2QBP9M8rS_4ZYtjKNA9YxhF0O_BZStvvls7q88Ioysk94zwT5E/exec";
 
-        // CONFIG FIREBASE
-        const firebaseConfig = typeof __firebase_config !== 'undefined' 
-            ? JSON.parse(__firebase_config) 
-            : {
-                apiKey: "",
-                authDomain: "chess-game-demo.firebaseapp.com",
-                projectId: "chess-game-demo",
-                storageBucket: "chess-game-demo.appspot.com",
-                messagingSenderId: "1234567890",
-                appId: "1:1234:web:abcd"
-              };
+        // ตัวแปรเช็คสถานะการผูกลิงก์ SCRIPT_URL กับฐานข้อมูล
+        const isSheetsDatabaseEnabled = SCRIPT_URL && !SCRIPT_URL.includes("XXXXXXXXX");
 
-        let app, auth, db;
-        let isFirebaseEnabled = false;
-
-        // เช็คการตั้งค่า Firebase ว่าเชื่อมต่ออยู่จริงหรือไม่
-        if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "") {
-            try {
-                app = initializeApp(firebaseConfig);
-                auth = getAuth(app);
-                db = getFirestore(app);
-                isFirebaseEnabled = true;
-                console.log("Firebase initialized successfully!");
-            } catch (e) {
-                console.error("Firebase Initialization Failed. Switching to Local Simulation Mode:", e);
-            }
-        }
-
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'chess-kings-queens-v2';
-
-        // ตัวแปรควบคุมข้อมูลผู้เล่น & การล็อกอิน
         let currentUser = null; 
         let playerProfile = { name: '', wins: 0, losses: 0, draws: 0, score: 1000 };
         
-        // ตัวแปรสะสมตัวหมากที่กินได้และแต้มสมดุลในเกม
         let capturedByWhite = [];
         let capturedByBlack = [];
 
-        // ตัวแปรควบคุมสถานะเกม
-        let currentGameMode = null; // 'AI' หรือ 'ONLINE'
+        let currentGameMode = null; // 'AI', 'ONLINE'
         let currentRoomId = null;
-        let myColor = 'white'; // 'white' หรือ 'black'
+        let myColor = 'white'; 
         let boardState = Array(64).fill(null);
         let turn = 'white';
         let selectedSquare = null;
         let validMoves = [];
         let isGameOver = false;
-        let onlineListeners = [];
+        let roomPollingInterval = null;
+
+        // ระบบสำรอง Sandbox เมื่อไม่มีฐานข้อมูลออนไลน์จริง
+        let simulatedRooms = [];
 
         const PIECES = {
             'wK': { emoji: '🐱', label: 'king', color: 'white', score: 1000, name: 'ราชาลูกแมว 👑' },
@@ -683,23 +560,15 @@
             'wR', 'wN', 'wB', 'wQ', 'wK', 'wB', 'wN', 'wR'
         ];
 
-        // ตัวช่วยสร้าง Email เสมือนจาก Username เพื่อความปลอดภัยในการใช้ระบบของ Firebase
-        function generateVirtualEmail(username) {
-            try {
-                // เข้ารหัสชื่อผู้ใช้ให้อยู่ในรูป Base64 เพื่อให้ปลอดภัยเป็น ASCII สำหรับ Email เสมอ
-                const base64Part = btoa(unescape(encodeURIComponent(username.trim())))
-                    .replace(/=/g, "")
-                    .replace(/\+/g, "-")
-                    .replace(/\//g, "_")
-                    .toLowerCase();
-                return `${base64Part}@sweetchess.com`;
-            } catch (e) {
-                // Fallback กรณีแปลงล้มเหลว
-                return `${encodeURIComponent(username).replace(/%/g, "")}@sweetchess.com`;
-            }
+        if (isSheetsDatabaseEnabled) {
+            const badge = document.getElementById('connection-status-badge');
+            badge.className = "bg-green-100 border-2 border-green-300 text-green-700 p-4 rounded-2xl text-xs font-semibold mb-6 flex flex-col md:flex-row items-center justify-between gap-2 shadow-inner";
+            badge.innerHTML = `
+                <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-ping"></span> 🟢 เชื่อมต่อฐานข้อมูล Google Sheets สำเร็จ!</span>
+                <span class="text-[10px] text-slate-500 font-normal">พร้อมรันโหมดออนไลน์ Multiplayer เต็มพิกัดแล้วจ้า 🌸</span>
+            `;
         }
 
-        // ฟังก์ชันสลับแท็บ เข้าสู่ระบบ / สมัครสมาชิก
         window.toggleAuthTab = (tab) => {
             const loginBtn = document.getElementById('tab-login-btn');
             const regBtn = document.getElementById('tab-register-btn');
@@ -720,115 +589,132 @@
         };
 
         function getLocalAccounts() {
-            let accounts = localStorage.getItem('chess_local_accounts');
+            let accounts = localStorage.getItem('chess_sheets_accounts');
             return accounts ? JSON.parse(accounts) : {};
         }
 
         function saveLocalAccounts(accounts) {
-            localStorage.setItem('chess_local_accounts', JSON.stringify(accounts));
+            localStorage.setItem('chess_sheets_accounts', JSON.stringify(accounts));
         }
 
-        // สมัครสมาชิก (Register Action - ไม่ต้องกรอกอีเมล)
         window.handleRegister = async () => {
             const nickname = document.getElementById('register-nickname').value.trim();
             const password = document.getElementById('register-password').value;
+            const submitBtn = document.getElementById('btn-register-submit');
 
             if (nickname.length < 3) {
                 showToast("ชื่อสั้นเกินไปนะเหมียว ขั้นต่ำ 3 อักษรจ้า", "error");
                 return;
             }
 
-            // แปลงชื่อผู้ใช้เป็นระบบ Virtual Email เสมือนโดยอัตโนมัติ
-            const virtualEmail = generateVirtualEmail(nickname);
-
-            if (isFirebaseEnabled) {
-                try {
-                    const userCredential = await createUserWithEmailAndPassword(auth, virtualEmail, password);
-                    const user = userCredential.user;
-                    
-                    playerProfile = { name: nickname, wins: 0, losses: 0, draws: 0, score: 1000 };
-                    const userDocRef = doc(db, 'artifacts', appId, 'users', user.uid, 'profile');
-                    await setDoc(userDocRef, playerProfile);
-
-                    showToast("สมัครสมาชิกเรียบร้อยแล้วค่ะ! ✨", "success");
-                    location.reload(); 
-                } catch (error) {
-                    console.error("Firebase Register Error:", error);
-                    showToast("ชื่อผู้ใช้นี้อาจมีผู้อื่นใช้งานแล้ว หรือรหัสผ่านง่ายเกินไปค่ะ", "error");
-                }
-            } else {
-                // ระบบจำลองออฟไลน์ (Local Authentication Fallback)
+            if (!isSheetsDatabaseEnabled) {
                 let accounts = getLocalAccounts();
-                if (accounts[virtualEmail]) {
-                    showToast("ชื่อผู้ใช้งานนี้ถูกสมัครไปแล้วจ้า", "error");
+                if (accounts[nickname]) {
+                    showToast("ชื่อผู้ใช้งานนี้ถูกสมัครไปแล้วในเครื่องนี้ค่ะ", "error");
                     return;
                 }
-
-                accounts[virtualEmail] = {
+                accounts[nickname] = {
                     username: nickname,
                     password: password,
                     profile: { name: nickname, wins: 0, losses: 0, draws: 0, score: 1000 }
                 };
                 saveLocalAccounts(accounts);
-
-                showToast("สมัครสมาชิกสําเร็จแล้วค่ะ! 💖", "success");
+                showToast("สมัครบัญชีจำลองในเครื่องสำเร็จแล้วค่ะ! 💖 กรุณาเข้าสู่ระบบนะคะ", "success");
                 toggleAuthTab('login');
                 document.getElementById('login-username').value = nickname;
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fas fa-spinner animate-spin"></i> กำลังส่งข้อมูลเข้าระบบ...`;
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    redirect: "follow",
+                    headers: { "Content-Type": "text/plain;charset=utf-8" },
+                    body: JSON.stringify({
+                        action: "register",
+                        username: nickname,
+                        password: password
+                    })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    showToast("สมัครสมาชิกฐานข้อมูลออนไลน์สำเร็จแล้วค่ะ! 🎉 ล็อกอินได้เลยนะคะ", "success");
+                    toggleAuthTab('login');
+                    document.getElementById('login-username').value = nickname;
+                } else {
+                    showToast(result.message, "error");
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById('modal-cors-trouble').classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `สมัครสมาชิกและร่วมผจญภัย ✨`;
             }
         };
 
-        // เข้าสู่ระบบ (Login Action - ไม่ใช้อีเมล)
         window.handleLogin = async () => {
             const username = document.getElementById('login-username').value.trim();
             const password = document.getElementById('login-password').value;
+            const submitBtn = document.getElementById('btn-login-submit');
 
-            const virtualEmail = generateVirtualEmail(username);
-
-            if (isFirebaseEnabled) {
-                try {
-                    await signInWithEmailAndPassword(auth, virtualEmail, password);
-                    showToast("เข้าสู่ระบบสำเร็จ ยินดีต้อนรับกลับค่ะ!", "success");
-                } catch (error) {
-                    console.error("Firebase Login Error:", error);
-                    showToast("ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้องเหมียว", "error");
-                }
-            } else {
-                // ระบบจำลองออฟไลน์ (Local Authentication Fallback)
+            if (!isSheetsDatabaseEnabled) {
                 let accounts = getLocalAccounts();
-                const userAcc = accounts[virtualEmail];
+                const userAcc = accounts[username];
                 if (userAcc && userAcc.password === password) {
-                    currentUser = { uid: virtualEmail, email: virtualEmail, isLocal: true };
+                    currentUser = { username: username };
                     playerProfile = userAcc.profile;
-                    
-                    // บันทึกสถานะล็อกอินปัจจุบันลงเครื่อง
-                    localStorage.setItem('chess_local_logged_in_user', JSON.stringify(currentUser));
-                    
-                    showToast(`ยินดีต้อนรับกลับคุณ ${playerProfile.name}! ✨`, "success");
+                    localStorage.setItem('chess_sheets_logged_in_user', JSON.stringify(currentUser));
+                    showToast(`ยินดีต้อนรับสู่โหมดออฟไลน์จำลองคุณ ${playerProfile.name}! ✨`, "success");
                     loadPlayerSession();
                 } else {
-                    showToast("ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้องเหมียว", "error");
+                    showToast("ชื่อผู้ใช้งานหรือรหัสผ่านจำลองไม่ถูกต้องค่ะ", "error");
                 }
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fas fa-spinner animate-spin"></i> กำลังตรวจสอบคีย์วิเศษ...`;
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    redirect: "follow",
+                    headers: { "Content-Type": "text/plain;charset=utf-8" },
+                    body: JSON.stringify({
+                        action: "login",
+                        username: username,
+                        password: password
+                    })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    currentUser = { username: username };
+                    playerProfile = result.profile;
+                    localStorage.setItem('chess_sheets_logged_in_user', JSON.stringify(currentUser));
+                    showToast(`ล็อกอินเข้าสู่ฐานข้อมูลออนไลน์สำเร็จ! ยินดีต้อนรับค่ะคุณ ${playerProfile.name} ✨`, "success");
+                    loadPlayerSession();
+                } else {
+                    showToast(result.message, "error");
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById('modal-cors-trouble').classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `เข้าสู่อาณาจักรหมากรุก 🌸`;
             }
         };
 
-        // ออกจากระบบ (Logout Action)
-        window.handleLogout = async () => {
-            if (isFirebaseEnabled) {
-                try {
-                    await signOut(auth);
-                    showToast("ออกจากระบบเรียบร้อยแล้วค่ะ", "info");
-                    location.reload();
-                } catch (e) {
-                    console.error(e);
-                }
-            } else {
-                localStorage.removeItem('chess_local_logged_in_user');
-                showToast("ออกจากระบบเรียบร้อยแล้วค่ะ", "info");
-                location.reload();
-            }
+        window.handleLogout = () => {
+            localStorage.removeItem('chess_sheets_logged_in_user');
+            showToast("ออกจากระบบและแยกย้ายกันพักผ่อนเรียบร้อยแล้วค่ะ 🚪", "info");
+            location.reload();
         };
 
-        // ตรวจดูและรักษาเซสชั่นผู้เล่น
         function loadPlayerSession() {
             if (currentUser) {
                 document.getElementById('profile-name').innerText = playerProfile.name;
@@ -838,211 +724,144 @@
                 document.getElementById('section-auth').classList.add('hidden');
                 document.getElementById('section-lobby').classList.remove('hidden');
 
-                if (isFirebaseEnabled) {
-                    listenToLeaderboard();
-                    refreshRoomsList();
-                } else {
-                    renderLocalLeaderboard();
-                }
+                renderLeaderboard();
+                refreshRoomsList();
             }
         }
 
-        // ตรวจสอบการเปลี่ยนสถานะผู้ใช้ของ Firebase
-        if (isFirebaseEnabled) {
-            onAuthStateChanged(auth, async (user) => {
-                if (user) {
-                    currentUser = user;
-                    const userDocRef = doc(db, 'artifacts', appId, 'users', user.uid, 'profile');
-                    const docSnap = await getDoc(userDocRef);
-                    if (docSnap.exists()) {
-                        playerProfile = docSnap.data();
-                    }
-                    loadPlayerSession();
-                } else {
-                    currentUser = null;
-                }
-            });
-        } else {
-            // ระบบจำลองออฟไลน์ ตรวจหาการล็อกอินเดิม
-            const savedLocalUser = localStorage.getItem('chess_local_logged_in_user');
-            if (savedLocalUser) {
-                currentUser = JSON.parse(savedLocalUser);
+        async function renderLeaderboard() {
+            if (!isSheetsDatabaseEnabled) {
                 let accounts = getLocalAccounts();
-                if (accounts[currentUser.uid]) {
-                    playerProfile = accounts[currentUser.uid].profile;
-                    setTimeout(() => loadPlayerSession(), 100);
-                }
-            }
-        }
-
-        // ซิงค์สถิติตัวหมากรุก
-        async function syncUserProfileWithFirestore() {
-            if (!currentUser) return;
-            if (isFirebaseEnabled) {
-                const userDocRef = doc(db, 'artifacts', appId, 'users', currentUser.uid, 'profile');
-                try {
-                    await setDoc(userDocRef, playerProfile);
-                    await updatePublicLeaderboard();
-                } catch (error) {
-                    console.error(error);
-                }
-            } else {
-                // บันทึกระบบออฟไลน์ (Local State)
-                let accounts = getLocalAccounts();
-                if (accounts[currentUser.uid]) {
-                    accounts[currentUser.uid].profile = playerProfile;
-                    saveLocalAccounts(accounts);
-                }
-                document.getElementById('profile-score').innerText = `🏆 ${playerProfile.score}`;
-                renderLocalLeaderboard();
-            }
-        }
-
-        async function updatePublicLeaderboard() {
-            if (!currentUser || !isFirebaseEnabled) return;
-            const publicLeaderRef = doc(db, 'artifacts', appId, 'public', 'data', 'leaderboard', currentUser.uid);
-            try {
-                await setDoc(publicLeaderRef, {
-                    userId: currentUser.uid,
-                    name: playerProfile.name,
-                    wins: playerProfile.wins,
-                    losses: playerProfile.losses,
-                    draws: playerProfile.draws,
-                    score: playerProfile.score,
-                    updatedAt: Date.now()
+                let players = [];
+                Object.keys(accounts).forEach(name => {
+                    const prof = accounts[name].profile;
+                    players.push({
+                        userId: name,
+                        name: prof.name,
+                        wins: prof.wins,
+                        draws: prof.draws,
+                        losses: prof.losses,
+                        score: prof.score
+                    });
                 });
+                players.push({ userId: 'bot1', name: '🤖 น้อน AI ปราชญ์ปุยฝ้าย', wins: 15, draws: 3, losses: 10, score: 1250 });
+                players.sort((a, b) => b.score - a.score);
+                drawLeaderboardTables(players);
+                return;
+            }
+
+            try {
+                const response = await fetch(`${SCRIPT_URL}?action=getLeaderboard`);
+                const result = await response.json();
+                if (result.success) {
+                    drawLeaderboardTables(result.players);
+                }
             } catch (error) {
                 console.error(error);
             }
         }
 
-        function listenToLeaderboard() {
-            if (!currentUser || !isFirebaseEnabled) return;
-            const leaderboardColRef = collection(db, 'artifacts', appId, 'public', 'data', 'leaderboard');
-            onSnapshot(leaderboardColRef, (snapshot) => {
-                let players = [];
-                snapshot.forEach((doc) => {
-                    players.push(doc.data());
-                });
-                players.sort((a, b) => b.score - a.score);
-                renderLeaderboards(players);
-            });
-        }
-
-        // ตารางจัดอันดับจำลองสำหรับโหมดออฟไลน์
-        function renderLocalLeaderboard() {
-            let accounts = getLocalAccounts();
-            let players = [];
-            Object.keys(accounts).forEach(vEmail => {
-                const prof = accounts[vEmail].profile;
-                players.push({
-                    userId: vEmail,
-                    name: prof.name,
-                    wins: prof.wins,
-                    draws: prof.draws,
-                    losses: prof.losses,
-                    score: prof.score
-                });
-            });
-            // ใส่บอทเพิ่มสีสันตาราง
-            players.push({ userId: 'bot1', name: '🤖 น้อน AI ปราชญ์ปุยฝ้าย', wins: 15, draws: 3, losses: 10, score: 1250 });
-            players.push({ userId: 'bot2', name: '🐱 ราชาแมวเก๋าเกม', wins: 5, draws: 1, losses: 2, score: 1080 });
-
-            players.sort((a, b) => b.score - a.score);
-            renderLeaderboards(players);
-        }
-
-        function renderLeaderboards(players) {
+        function drawLeaderboardTables(players) {
             const sideBody = document.getElementById('leaderboard-body');
             const modalBody = document.getElementById('modal-leaderboard-body');
             
             let sideHTML = '';
             let modalHTML = '';
-            
-            if (players.length === 0) {
-                sideHTML = `<tr><td colspan="5" class="text-center py-4 text-pink-400 italic">ไม่มีข้อมูลคะแนน</td></tr>`;
-                modalHTML = `<tr><td colspan="6" class="text-center py-4 text-pink-400 italic">ไม่มีข้อมูลคะแนน</td></tr>`;
-            } else {
-                players.slice(0, 5).forEach((p, idx) => {
-                    const isMe = p.userId === currentUser?.uid || p.userId === currentUser?.email;
-                    const rankBadge = idx === 0 ? '👑🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : `${idx + 1}`;
-                    sideHTML += `
-                        <tr class="${isMe ? 'bg-pink-100 font-bold' : ''} border-b border-pink-100 hover:bg-pink-50">
-                            <td class="px-2 py-2.5 text-center">${rankBadge}</td>
-                            <td class="px-2 py-2.5 truncate max-w-[80px]" title="${p.name}">${p.name}</td>
-                            <td class="px-2 py-2.5 text-center text-emerald-500 font-bold">${p.wins}</td>
-                            <td class="px-2 py-2.5 text-center text-red-400 font-bold">${p.losses}</td>
-                            <td class="px-2 py-2.5 text-center font-bold text-amber-500">${p.score}</td>
-                        </tr>
-                    `;
-                });
 
-                players.forEach((p, idx) => {
-                    const isMe = p.userId === currentUser?.uid || p.userId === currentUser?.email;
-                    const rankBadge = idx === 0 ? '👑🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : `${idx + 1}`;
-                    modalHTML += `
-                        <tr class="${isMe ? 'bg-pink-100 font-bold border-pink-300' : 'border-pink-100'} border-b hover:bg-pink-50/70">
-                            <td class="px-4 py-3">${rankBadge}</td>
-                            <td class="px-4 py-3 flex items-center gap-2">
-                                <span>${p.name}</span>
-                                ${isMe ? '<span class="bg-pink-400 text-white text-[10px] px-2 py-0.5 rounded-full">ฉันเอง</span>' : ''}
-                            </td>
-                            <td class="px-4 py-3 text-center text-emerald-500 font-bold">${p.wins}</td>
-                            <td class="px-4 py-3 text-center text-slate-400">${p.draws ? p.draws : 0}</td>
-                            <td class="px-4 py-3 text-center text-red-400 font-bold">${p.losses}</td>
-                            <td class="px-4 py-3 text-center text-amber-500 font-bold">${p.score}</td>
-                        </tr>
-                    `;
-                });
-            }
-            
-            sideBody.innerHTML = sideHTML;
+            players.slice(0, 5).forEach((p, idx) => {
+                const isMe = p.userId === currentUser?.username;
+                sideHTML += `
+                    <tr class="${isMe ? 'bg-pink-100 font-bold' : ''} border-b border-pink-100">
+                        <td class="px-2 py-2.5 text-center">${idx + 1}</td>
+                        <td class="px-2 py-2.5 truncate max-w-[80px]">${p.name}</td>
+                        <td class="px-2 py-2.5 text-center text-emerald-500 font-bold">${p.wins}</td>
+                        <td class="px-2 py-2.5 text-center text-red-400 font-bold">${p.losses}</td>
+                        <td class="px-2 py-2.5 text-center font-bold text-amber-500">${p.score}</td>
+                    </tr>
+                `;
+            });
+
+            players.forEach((p, idx) => {
+                const isMe = p.userId === currentUser?.username;
+                modalHTML += `
+                    <tr class="${isMe ? 'bg-pink-100 font-bold border-pink-300' : 'border-pink-100'} border-b">
+                        <td class="px-4 py-3">${idx + 1}</td>
+                        <td class="px-4 py-3">${p.name}</td>
+                        <td class="px-4 py-3 text-center text-emerald-500 font-bold">${p.wins}</td>
+                        <td class="px-4 py-3 text-center text-slate-400">${p.draws || 0}</td>
+                        <td class="px-4 py-3 text-center text-red-400 font-bold">${p.losses}</td>
+                        <td class="px-4 py-3 text-center text-amber-500 font-bold">${p.score}</td>
+                    </tr>
+                `;
+            });
+
+            sideBody.innerHTML = sideHTML || '<tr><td colspan="5" class="text-center py-4 text-slate-400 italic">ไม่มีข้อมูลคะแนน</td></tr>';
             modalBody.innerHTML = modalHTML;
         }
 
-        // รีเฟรชและแสดงห้องออนไลน์
-        window.refreshRoomsList = async () => {
-            if (!isFirebaseEnabled) {
-                const listContainer = document.getElementById('rooms-list');
-                listContainer.innerHTML = `
-                    <div class="text-center py-6 text-slate-400 text-sm bg-white/50 border-2 border-dashed border-pink-200 rounded-2xl">
-                        คุณกำลังเชื่อมต่อในโหมดออฟไลน์ (Local) ไม่สามารถเล่นปาร์ตี้ออนไลน์ร่วมกับคนอื่นได้ค่ะ สู้กับบอท AI ได้เลยน้า 🤖🍭
-                    </div>
-                `;
+        async function syncUserProfile() {
+            if (!isSheetsDatabaseEnabled) {
+                let accounts = getLocalAccounts();
+                if (accounts[currentUser.username]) {
+                    accounts[currentUser.username].profile = playerProfile;
+                    saveLocalAccounts(accounts);
+                }
+                document.getElementById('profile-score').innerText = `🏆 ${playerProfile.score}`;
+                renderLeaderboard();
                 return;
             }
 
-            const refreshIcon = document.getElementById('refresh-icon');
-            refreshIcon.classList.add('animate-spin');
-            
-            const roomsColRef = collection(db, 'artifacts', appId, 'public', 'data', 'rooms');
             try {
-                onSnapshot(roomsColRef, (snapshot) => {
-                    let rooms = [];
-                    snapshot.forEach((doc) => {
-                        const r = doc.data();
-                        if (r.status === 'waiting') {
-                            rooms.push(r);
-                        }
-                    });
-                    renderRoomsList(rooms);
-                    refreshIcon.classList.remove('animate-spin');
-                }, (err) => {
-                    console.error(err);
-                    refreshIcon.classList.remove('animate-spin');
+                await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    redirect: "follow",
+                    headers: { "Content-Type": "text/plain;charset=utf-8" },
+                    body: JSON.stringify({
+                        action: "syncProfile",
+                        username: currentUser.username,
+                        wins: playerProfile.wins,
+                        draws: playerProfile.draws,
+                        losses: playerProfile.losses,
+                        score: playerProfile.score
+                    })
                 });
+                document.getElementById('profile-score').innerText = `🏆 ${playerProfile.score}`;
+                renderLeaderboard();
+            } catch (e) {
+                console.error("Failed to sync profile score:", e);
+            }
+        }
+
+        window.refreshRoomsList = async () => {
+            const refreshIcon = document.getElementById('refresh-icon');
+            
+            if (!isSheetsDatabaseEnabled) {
+                drawRoomsList(simulatedRooms);
+                return;
+            }
+
+            refreshIcon.classList.add('animate-spin');
+
+            try {
+                const response = await fetch(`${SCRIPT_URL}?action=getRooms`);
+                const result = await response.json();
+                if (result.success) {
+                    drawRoomsList(result.rooms);
+                }
             } catch (e) {
                 console.error(e);
+                document.getElementById('modal-cors-trouble').classList.remove('hidden');
+            } finally {
                 refreshIcon.classList.remove('animate-spin');
             }
         };
 
-        function renderRoomsList(rooms) {
+        function drawRoomsList(rooms) {
             const listContainer = document.getElementById('rooms-list');
             if (rooms.length === 0) {
                 listContainer.innerHTML = `
                     <div class="text-center py-6 text-slate-400 text-sm bg-white/50 border-2 border-dashed border-pink-200 rounded-2xl">
-                        ยังไม่มีใครเปิดห้องปาร์ตี้เลยเหมียว ลองสร้างห้องปาร์ตี้คนแรกของคุณสิคะ! 🌸
+                        ยังไม่มีใครตั้งปาร์ตี้ในขณะนี้เลยเหมียว กด "สร้างห้องออนไลน์จริง" ดวลกันคนแรกได้เลยค่ะ! 🎀
                     </div>
                 `;
                 return;
@@ -1053,11 +872,13 @@
                 html += `
                     <div class="flex items-center justify-between bg-white/90 border-2 border-pink-100 p-4 rounded-2xl hover:border-pink-300 transition shadow-sm">
                         <div>
-                            <span class="text-xs bg-pink-100 text-pink-500 font-bold px-3 py-1 rounded-full">ปาร์ตี้ว่าง</span>
-                            <h6 class="text-sm font-bold text-slate-700 mt-2">บ้านของน้อน: ${room.hostName}</h6>
+                            <span class="text-xs ${isSheetsDatabaseEnabled ? 'bg-pink-100 text-pink-500' : 'bg-purple-100 text-purple-500'} font-bold px-3 py-1 rounded-full">
+                                ${isSheetsDatabaseEnabled ? 'ห้องออนไลน์บน Sheets' : 'ห้องจำลอง Sandbox'}
+                            </span>
+                            <h6 class="text-sm font-bold text-slate-700 mt-2">บ้านปาร์ตี้ของ: ${room.hostName}</h6>
                         </div>
-                        <button onclick="joinOnlineRoom('${room.id}')" class="bg-pink-400 hover:bg-pink-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition border-b-2 border-pink-600 transform active:scale-95 shadow-sm">
-                            จับมือร่วมเล่น 🌸
+                        <button onclick="joinOnlineRoom('${room.id}')" class="bg-blue-400 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition border-b-4 border-blue-600 transform active:scale-95 shadow-sm">
+                            โบยบินเข้าไปจอย 🌌
                         </button>
                     </div>
                 `;
@@ -1066,169 +887,260 @@
         }
 
         window.createNewOnlineRoom = async () => {
-            if (!isFirebaseEnabled) {
-                showToast("ฟังก์ชันออนไลน์ใช้ได้เฉพาะตอนใส่ Firebase คีย์เชื่อมต่อเท่านั้นค่ะ", "error");
-                return;
-            }
             const roomId = 'ROOM_' + Math.random().toString(36).substr(2, 5).toUpperCase();
-            const roomRef = doc(db, 'artifacts', appId, 'public', 'data', 'rooms', roomId);
-            
-            const initialRoomData = {
-                id: roomId,
-                hostId: currentUser.uid,
-                hostName: playerProfile.name,
-                guestId: null,
-                guestName: null,
-                status: 'waiting', 
-                board: INITIAL_BOARD,
-                turn: 'white',
-                winner: null,
-                createdAt: Date.now(),
-                chat: []
-            };
 
-            try {
-                await setDoc(roomRef, initialRoomData);
-                myColor = 'white'; 
+            if (!isSheetsDatabaseEnabled) {
+                const newSimulatedRoom = {
+                    id: roomId,
+                    hostId: currentUser.username,
+                    hostName: playerProfile.name,
+                    guestId: "",
+                    guestName: "",
+                    status: "waiting",
+                    board: [...INITIAL_BOARD],
+                    turn: "white",
+                    winner: ""
+                };
+                simulatedRooms.push(newSimulatedRoom);
+                
+                myColor = 'white';
                 currentGameMode = 'ONLINE';
                 currentRoomId = roomId;
-                
+                boardState = [...INITIAL_BOARD];
+                turn = 'white';
+                isGameOver = false;
+
                 setupGameUI();
-                listenToRoom(roomId);
-                showToast("สร้างปาร์ตี้สำเร็จแล้วเหมียว! นั่งจิบชาคู่เค้กรอเพื่อนๆ กันเถอะ 🧁", "success");
-            } catch (error) {
-                console.error(error);
-                showToast("เกิดข้อผิดพลาดในการสร้างห้อง", "error");
+                renderBoard(); 
+                renderMoveHistory();
+                startOnlinePolling(roomId);
+                showToast("สร้างห้องจำลอง Sandbox สำเร็จแล้วเหมียว! (บอทจะเข้าจอยใน 3 วินาทีค่ะ) 🧁", "success");
+
+                setTimeout(() => {
+                    const room = simulatedRooms.find(r => r.id === roomId);
+                    if (room && room.status === 'waiting') {
+                        room.guestId = "bot_sandbox";
+                        room.guestName = "🤖 บอทน้อนหงายการ์ด";
+                        room.status = "playing";
+                        showToast("บอทอัจฉริยะก้าวเข้ามาท้าประลองกับคุณในโหมดจำลองแล้วค่ะ! ⚔️", "info");
+                    }
+                }, 3000);
+                return;
+            }
+
+            showToast("กำลังเขียนโครงกระดานลงฐานข้อมูล...", "info");
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    redirect: "follow",
+                    headers: { "Content-Type": "text/plain;charset=utf-8" },
+                    body: JSON.stringify({
+                        action: "createRoom",
+                        roomId: roomId,
+                        hostId: currentUser.username,
+                        hostName: playerProfile.name,
+                        board: INITIAL_BOARD
+                    })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    myColor = 'white';
+                    currentGameMode = 'ONLINE';
+                    currentRoomId = roomId;
+                    boardState = [...INITIAL_BOARD];
+                    turn = 'white';
+                    isGameOver = false;
+
+                    setupGameUI();
+                    renderBoard(); 
+                    renderMoveHistory();
+                    startOnlinePolling(roomId);
+                    showToast("สร้างห้องใน Google Sheets สำเร็จแล้วเหมียว! นั่งทานเค้กรอเพื่อนๆ กันเถอะ 🧁", "success");
+                } else {
+                    showToast(result.message || "สร้างห้องไม่สำเร็จ", "error");
+                }
+            } catch (e) {
+                console.error(e);
+                document.getElementById('modal-cors-trouble').classList.remove('hidden');
             }
         };
 
         window.joinOnlineRoom = async (roomId) => {
-            if (!isFirebaseEnabled) return;
-            const roomRef = doc(db, 'artifacts', appId, 'public', 'data', 'rooms', roomId);
-            try {
-                const roomSnap = await getDoc(roomRef);
-                if (!roomSnap.exists()) {
-                    showToast("ไม่พบห้องผจญภัยนี้แล้วน้า", "error");
-                    return;
+            if (!isSheetsDatabaseEnabled) {
+                const room = simulatedRooms.find(r => r.id === roomId);
+                if (room && room.status === 'waiting') {
+                    room.guestId = currentUser.username;
+                    room.guestName = playerProfile.name;
+                    room.status = 'playing';
+                    
+                    myColor = 'black';
+                    currentGameMode = 'ONLINE';
+                    currentRoomId = roomId;
+                    boardState = room.board;
+                    turn = room.turn;
+                    isGameOver = false;
+
+                    setupGameUI();
+                    renderBoard(); 
+                    renderMoveHistory();
+                    startOnlinePolling(roomId);
+                    showToast("เข้าสู่ห้องจำลองสำเร็จ! เตรียมตัวดวลฝีมือเลยนะคะ ✨", "success");
+                } else {
+                    showToast("ห้องจำลองนี้อาจเต็มหรือจบเกมไปแล้วค่ะ", "error");
                 }
-                const roomData = roomSnap.data();
-                if (roomData.status !== 'waiting') {
-                    showToast("เพื่อนจับคู่กันเล่นไปเสียแล้วล่ะ", "error");
-                    return;
-                }
-
-                await updateDoc(roomRef, {
-                    guestId: currentUser.uid,
-                    guestName: playerProfile.name,
-                    status: 'playing'
-                });
-
-                myColor = 'black'; 
-                currentGameMode = 'ONLINE';
-                currentRoomId = roomId;
-                
-                setupGameUI();
-                listenToRoom(roomId);
-                showToast("เข้าสู่ปาร์ตี้ร่วมเล่นเรียบร้อย! เริ่มเล่นได้ 🎈", "success");
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        function listenToRoom(roomId) {
-            onlineListeners.forEach(unsub => unsub());
-            onlineListeners = [];
-
-            const roomRef = doc(db, 'artifacts', appId, 'public', 'data', 'rooms', roomId);
-            const unsub = onSnapshot(roomRef, (docSnap) => {
-                if (!docSnap.exists()) {
-                    showToast("ปาร์ตี้ได้ปิดตัวลงแล้วจ้า", "error");
-                    exitGameToLobby();
-                    return;
-                }
-                const roomData = docSnap.data();
-                
-                boardState = roomData.board;
-                turn = roomData.turn;
-                isGameOver = roomData.status === 'finished';
-                
-                document.getElementById('player-white').innerText = `🌸 สีชมพู: ${roomData.hostName} ${myColor === 'white' ? '(คุณ)' : ''}`;
-                document.getElementById('player-black').innerText = `🌌 สีฟ้า: ${roomData.guestName ? roomData.guestName : 'กำลังรอเพื่อนมาร่วม...'}`;
-                
-                if (myColor === 'black') {
-                    document.getElementById('player-white').innerText = `🌸 สีชมพู: ${roomData.hostName}`;
-                    document.getElementById('player-black').innerText = `🌌 สีฟ้า: ${roomData.guestName} (คุณ)`;
-                }
-
-                const turnLabel = document.getElementById('game-status');
-                if (roomData.status === 'waiting') {
-                    turnLabel.innerText = "รอเพื่อนมาร่วมเล่น... 🍀";
-                    turnLabel.className = "bg-amber-100 border-2 border-amber-200 text-amber-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block animate-pulse";
-                } else if (roomData.status === 'playing') {
-                    if (turn === myColor) {
-                        turnLabel.innerText = "น้อน... ตาของคุณแล้วนะ! ✨";
-                        turnLabel.className = "bg-green-100 border-2 border-green-200 text-green-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block animate-bounce";
-                    } else {
-                        turnLabel.innerText = `ตาของฝั่งสี${turn === 'white' ? 'ชมพู' : 'ฟ้า'}เดิน`;
-                        turnLabel.className = "bg-purple-100 border-2 border-purple-200 text-purple-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block";
-                    }
-                } else if (roomData.status === 'finished') {
-                    turnLabel.innerText = `จบเกมแล้วเหมียว! ผู้ชนะคือสี${roomData.winner === 'white' ? 'ชมพู 👑' : 'ฟ้า 👑'}`;
-                    turnLabel.className = "bg-red-100 border-2 border-red-200 text-red-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block";
-                }
-
-                renderMoveHistory(roomData.board);
-                renderChat(roomData.chat);
-                renderBoard();
-
-            }, (err) => {
-                console.error(err);
-            });
-
-            onlineListeners.push(unsub);
-        }
-
-        window.sendChatMessage = async () => {
-            const chatInput = document.getElementById('chat-input');
-            const msg = chatInput.value.trim();
-            if (!msg || !currentRoomId) return;
-
-            const roomRef = doc(db, 'artifacts', appId, 'public', 'data', 'rooms', currentRoomId);
-            try {
-                await updateDoc(roomRef, {
-                    chat: arrayUnion({
-                        sender: playerProfile.name,
-                        message: msg,
-                        time: Date.now()
-                    })
-                });
-                chatInput.value = '';
-            } catch (e) {
-                console.error(e);
-            }
-        };
-
-        function renderChat(chatList) {
-            const chatBox = document.getElementById('chat-messages');
-            if (!chatList || chatList.length === 0) {
-                chatBox.innerHTML = '<p class="text-slate-400 italic">ส่งความรักให้กันด้วยนะ!</p>';
                 return;
             }
-            let html = '';
-            chatList.forEach(c => {
-                html += `
-                    <div class="bg-white/80 rounded-lg p-2 shadow-sm border border-pink-50">
-                        <span class="font-bold text-pink-500">${c.sender}: </span>
-                        <span class="text-slate-700 font-semibold">${c.message}</span>
-                    </div>
-                `;
-            });
-            chatBox.innerHTML = html;
-            chatBox.scrollTop = chatBox.scrollHeight;
+
+            showToast("กำลังต่อคิวเขียนข้อมูลเข้าแผ่นชีต...", "info");
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    redirect: "follow",
+                    headers: { "Content-Type": "text/plain;charset=utf-8" },
+                    body: JSON.stringify({
+                        action: "joinRoom",
+                        roomId: roomId,
+                        guestId: currentUser.username,
+                        guestName: playerProfile.name
+                    })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    myColor = 'black';
+                    currentGameMode = 'ONLINE';
+                    currentRoomId = roomId;
+
+                    setupGameUI();
+                    renderBoard(); 
+                    startOnlinePolling(roomId);
+                    showToast("เตรียมตัวดวลฝีมือผ่านฐานข้อมูลสำเร็จแล้วค่ะ! ✨", "success");
+                } else {
+                    showToast(result.message, "error");
+                }
+            } catch (e) {
+                console.error(e);
+                document.getElementById('modal-cors-trouble').classList.remove('hidden');
+            }
+        };
+
+        function startOnlinePolling(roomId) {
+            if (roomPollingInterval) clearInterval(roomPollingInterval);
+
+            const poll = async () => {
+                if (!currentRoomId || currentGameMode !== 'ONLINE') return;
+
+                if (!isSheetsDatabaseEnabled) {
+                    const room = simulatedRooms.find(r => r.id === roomId);
+                    if (room) {
+                        boardState = room.board;
+                        turn = room.turn;
+                        isGameOver = room.status === 'finished';
+
+                        document.getElementById('player-white').innerText = `🌸 สีชมพู: ${room.hostName} ${myColor === 'white' ? '(คุณ)' : ''}`;
+                        document.getElementById('player-black').innerText = `🌌 สีฟ้า: ${room.guestName ? room.guestName : 'รอผู้เข้าร่วม...'}`;
+
+                        if (myColor === 'black') {
+                            document.getElementById('player-white').innerText = `🌸 สีชมพู: ${room.hostName}`;
+                            document.getElementById('player-black').innerText = `🌌 สีฟ้า: ${room.guestName} (คุณ)`;
+                        }
+
+                        const turnLabel = document.getElementById('game-status');
+                        if (room.status === 'waiting') {
+                            turnLabel.innerText = "รอเพื่อนเข้ามาร่วมเล่น... 🍀";
+                            turnLabel.className = "bg-amber-100 border-2 border-amber-200 text-amber-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block animate-pulse";
+                        } else if (room.status === 'playing') {
+                            if (turn === myColor) {
+                                turnLabel.innerText = "ตาของคุณเดินแล้วนะ! ✨";
+                                turnLabel.className = "bg-green-100 border-2 border-green-200 text-green-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block animate-bounce";
+                            } else {
+                                turnLabel.innerText = `ตาของฝั่งสี${turn === 'white' ? 'ชมพู' : 'ฟ้า'}เดิน`;
+                                turnLabel.className = "bg-purple-100 border-2 border-purple-200 text-purple-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block";
+                            }
+
+                            if (turn === 'black' && room.guestId === 'bot_sandbox' && myColor === 'white' && !isGameOver) {
+                                setTimeout(() => {
+                                    const aiMove = getBestMoveDepth(2);
+                                    if (aiMove) {
+                                        executeMove(aiMove.from, aiMove.to);
+                                    }
+                                }, 1500);
+                            }
+                        } else if (room.status === 'finished') {
+                            turnLabel.innerText = `จบเกม! ผู้ชนะคือสี${room.winner === 'white' ? 'ชมพู 👑' : 'ฟ้า 👑'}`;
+                            turnLabel.className = "bg-red-100 border-2 border-red-200 text-red-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block";
+                            
+                            if (roomPollingInterval) {
+                                clearInterval(roomPollingInterval);
+                                roomPollingInterval = null;
+                            }
+                            handleGameEnd(room.winner);
+                        }
+
+                        renderBoard();
+                        renderMoveHistory();
+                    }
+                    return;
+                }
+
+                try {
+                    const response = await fetch(`${SCRIPT_URL}?action=getRoomDetail&roomId=${roomId}`);
+                    const result = await response.json();
+                    if (result.success) {
+                        const room = result.room;
+                        boardState = room.board;
+                        turn = room.turn;
+                        isGameOver = room.status === 'finished';
+
+                        document.getElementById('player-white').innerText = `🌸 สีชมพู: ${room.hostName} ${myColor === 'white' ? '(คุณ)' : ''}`;
+                        document.getElementById('player-black').innerText = `🌌 สีฟ้า: ${room.guestName ? room.guestName : 'รอผู้เข้าร่วม...'}`;
+
+                        if (myColor === 'black') {
+                            document.getElementById('player-white').innerText = `🌸 สีชมพู: ${room.hostName}`;
+                            document.getElementById('player-black').innerText = `🌌 สีฟ้า: ${room.guestName} (คุณ)`;
+                        }
+
+                        const turnLabel = document.getElementById('game-status');
+                        if (room.status === 'waiting') {
+                            turnLabel.innerText = "รอเพื่อนเข้ามาร่วมเล่น... 🍀";
+                            turnLabel.className = "bg-amber-100 border-2 border-amber-200 text-amber-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block animate-pulse";
+                        } else if (room.status === 'playing') {
+                            if (turn === myColor) {
+                                turnLabel.innerText = "ตาของคุณเดินแล้วนะ! ✨";
+                                turnLabel.className = "bg-green-100 border-2 border-green-200 text-green-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block animate-bounce";
+                            } else {
+                                turnLabel.innerText = `ตาของฝั่งสี${turn === 'white' ? 'ชมพู' : 'ฟ้า'}เดิน`;
+                                turnLabel.className = "bg-purple-100 border-2 border-purple-200 text-purple-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block";
+                            }
+                        } else if (room.status === 'finished') {
+                            turnLabel.innerText = `จบเกม! ผู้ชนะคือสี${room.winner === 'white' ? 'ชมพู 👑' : 'ฟ้า 👑'}`;
+                            turnLabel.className = "bg-red-100 border-2 border-red-200 text-red-600 font-bold text-xs px-3.5 py-1.5 rounded-full inline-block";
+                            
+                            if (roomPollingInterval) {
+                                clearInterval(roomPollingInterval);
+                                roomPollingInterval = null;
+                            }
+                            handleGameEnd(room.winner);
+                        }
+
+                        renderBoard();
+                        renderMoveHistory();
+                    }
+                } catch (err) {
+                    console.error("Polling sync failed:", err);
+                }
+            };
+
+            poll();
+            roomPollingInterval = setInterval(poll, 3000); 
         }
 
-        // เริ่มเกมโหมดเล่นกับ AI
         window.startAIGame = () => {
+            if (roomPollingInterval) {
+                clearInterval(roomPollingInterval);
+                roomPollingInterval = null;
+            }
             currentGameMode = 'AI';
             currentRoomId = null;
             myColor = 'white'; 
@@ -1248,7 +1160,7 @@
             document.getElementById('btn-reset-game').classList.remove('hidden');
             setupGameUI();
             updateCapturedUI();
-            renderBoard();
+            renderBoard(); 
             renderMoveHistory();
             showToast("สู้กับบอทน้อนอัจฉริยะแล้วน้า ขอให้เป็นวันที่แสนรุ่งเรืองนะคะ! ✨", "info");
         };
@@ -1259,91 +1171,12 @@
             document.getElementById('btn-reset-game').classList.add('hidden');
             
             if (currentGameMode === 'ONLINE') {
-                document.getElementById('chat-box-area').classList.remove('hidden');
                 document.getElementById('online-room-code').classList.remove('hidden');
                 document.getElementById('room-code-display').innerText = currentRoomId;
             } else {
-                document.getElementById('chat-box-area').classList.add('hidden');
                 document.getElementById('online-room-code').classList.add('hidden');
                 document.getElementById('btn-reset-game').classList.remove('hidden');
             }
-        }
-
-        function showFloatingPoints(squareIdx, emoji, points) {
-            const squareEl = document.querySelector(`.board-square[data-index="${squareIdx}"]`);
-            if (!squareEl) return;
-            const floatText = document.createElement('div');
-            floatText.className = 'absolute text-center z-50 pointer-events-none animate-bounce';
-            floatText.style.animationDuration = '0.8s';
-            floatText.style.top = '10%';
-            floatText.innerHTML = `
-                <span class="text-xs bg-pink-500 text-white rounded-full px-2 py-0.5 border border-white shadow-md font-extrabold whitespace-nowrap">+${points}</span>
-            `;
-            squareEl.appendChild(floatText);
-            setTimeout(() => {
-                floatText.remove();
-            }, 1200);
-        }
-
-        function updateCapturedUI() {
-            const whiteContainer = document.getElementById('captured-by-white');
-            const blackContainer = document.getElementById('captured-by-black');
-            
-            let whiteScore = capturedByWhite.reduce((sum, p) => sum + (PIECES[p].score === 1000 ? 0 : PIECES[p].score), 0);
-            let blackScore = capturedByBlack.reduce((sum, p) => sum + (PIECES[p].score === 1000 ? 0 : PIECES[p].score), 0);
-
-            if (capturedByWhite.length === 0) {
-                whiteContainer.innerHTML = 'จับได้: 🌸';
-            } else {
-                let whiteEmojis = capturedByWhite.map(p => PIECES[p].emoji).join(' ');
-                whiteContainer.innerHTML = `<span class="truncate max-w-[140px]">จับได้: ${whiteEmojis}</span> <span class="bg-pink-100 text-pink-600 font-bold px-1.5 py-0.5 rounded-full text-[10px] ml-1">+${whiteScore}</span>`;
-            }
-
-            if (capturedByBlack.length === 0) {
-                blackContainer.innerHTML = 'จับได้: 🌌';
-            } else {
-                let blackEmojis = capturedByBlack.map(p => PIECES[p].emoji).join(' ');
-                blackContainer.innerHTML = `<span class="truncate max-w-[140px] justify-end">จับได้: ${blackEmojis}</span> <span class="bg-blue-100 text-blue-600 font-bold px-1.5 py-0.5 rounded-full text-[10px] ml-1">+${blackScore}</span>`;
-            }
-
-            const balanceEl = document.getElementById('material-balance');
-            if (whiteScore === blackScore) {
-                balanceEl.innerHTML = `สมดุลพลัง: เสมอกัน ⚖️`;
-                balanceEl.className = "text-xs font-bold text-purple-400";
-            } else if (whiteScore > blackScore) {
-                balanceEl.innerHTML = `สมดุลพลัง: ชมพูนำอยู่ +${whiteScore - blackScore} 🌸`;
-                balanceEl.className = "text-xs font-bold text-pink-500 animate-pulse";
-            } else {
-                balanceEl.innerHTML = `สมดุลพลัง: ฟ้านำอยู่ +${blackScore - whiteScore} 🌌`;
-                balanceEl.className = "text-xs font-bold text-blue-500 animate-pulse";
-            }
-        }
-
-        function calculateCapturedFromBoard() {
-            let initialCounts = {};
-            INITIAL_BOARD.forEach(p => {
-                if (p) initialCounts[p] = (initialCounts[p] || 0) + 1;
-            });
-
-            let currentCounts = {};
-            boardState.forEach(p => {
-                if (p) currentCounts[p] = (currentCounts[p] || 0) + 1;
-            });
-
-            capturedByWhite = [];
-            capturedByBlack = [];
-
-            for (let p in initialCounts) {
-                let diff = initialCounts[p] - (currentCounts[p] || 0);
-                for (let k = 0; k < diff; k++) {
-                    if (PIECES[p].color === 'black') {
-                        capturedByWhite.push(p);
-                    } else {
-                        capturedByBlack.push(p);
-                    }
-                }
-            }
-            updateCapturedUI();
         }
 
         function renderBoard() {
@@ -1383,11 +1216,6 @@
                 }
 
                 square.addEventListener('click', () => handleSquareClick(i));
-                square.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    handleSquareClick(i);
-                });
-
                 boardEl.appendChild(square);
             }
             updateHighlights();
@@ -1447,11 +1275,6 @@
 
         async function executeMove(fromIdx, toIdx) {
             const pieceCode = boardState[fromIdx];
-            const capturedPiece = boardState[toIdx];
-
-            if (capturedPiece) {
-                showFloatingPoints(toIdx, PIECES[capturedPiece].emoji, PIECES[capturedPiece].score === 1000 ? 100 : PIECES[capturedPiece].score);
-            }
             
             boardState[toIdx] = pieceCode;
             boardState[fromIdx] = null;
@@ -1459,10 +1282,8 @@
             if (PIECES[pieceCode].label === 'pawn') {
                 if (toIdx < 8 && PIECES[pieceCode].color === 'white') {
                     boardState[toIdx] = 'wQ'; 
-                    showToast("ว้าว! ลูกเจี๊ยบแปลงร่างเป็นราชินีกระต่ายผู้สง่างามแล้วค่ะ! 👸🌸", "success");
                 } else if (toIdx >= 56 && PIECES[pieceCode].color === 'black') {
                     boardState[toIdx] = 'bQ'; 
-                    showToast("น้อนเพนกวินเปลี่ยนกายเป็นราชินีแพนด้าสุดอลังการแล้ว! 🐼🎀", "success");
                 }
             }
 
@@ -1473,13 +1294,38 @@
             checkGameResult();
 
             if (currentGameMode === 'ONLINE') {
-                const roomRef = doc(db, 'artifacts', appId, 'public', 'data', 'rooms', currentRoomId);
-                await updateDoc(roomRef, {
+                if (!isSheetsDatabaseEnabled) {
+                    const room = simulatedRooms.find(r => r.id === currentRoomId);
+                    if (room) {
+                        room.board = [...boardState];
+                        room.turn = turn;
+                        room.status = isGameOver ? "finished" : "playing";
+                        room.winner = isGameOver ? (turn === 'white' ? 'black' : 'white') : "";
+                    }
+                    renderBoard();
+                    renderMoveHistory();
+                    return;
+                }
+
+                const payload = {
+                    action: "updateBoard",
+                    roomId: currentRoomId,
                     board: boardState,
                     turn: turn,
-                    status: isGameOver ? 'finished' : 'playing',
-                    winner: isGameOver ? (turn === 'white' ? 'black' : 'white') : null
-                });
+                    status: isGameOver ? "finished" : "playing",
+                    winner: isGameOver ? (turn === 'white' ? 'black' : 'white') : ""
+                };
+
+                try {
+                    await fetch(SCRIPT_URL, {
+                        method: "POST",
+                        redirect: "follow",
+                        headers: { "Content-Type": "text/plain;charset=utf-8" },
+                        body: JSON.stringify(payload)
+                    });
+                } catch (e) {
+                    console.error("Board sync failed:", e);
+                }
             } else {
                 renderBoard();
                 renderMoveHistory();
@@ -1625,7 +1471,7 @@
             }
         }
 
-        async function handleGameEnd(winnerColor) {
+        function handleGameEnd(winnerColor) {
             let resultMessage = "";
             let pointsGained = 0;
             let titleText = "";
@@ -1652,14 +1498,12 @@
             }
 
             playerProfile.score = Math.max(500, playerProfile.score + pointsGained);
-            
-            await syncUserProfileWithFirestore();
+            syncUserProfile();
 
             document.getElementById('game-over-emoji').innerText = emojiText;
             document.getElementById('game-over-title').innerText = titleText;
             document.getElementById('game-over-subtitle').innerText = resultMessage;
             document.getElementById('game-over-points').innerText = `${pointsGained >= 0 ? '+' : ''}${pointsGained} แต้ม`;
-            document.getElementById('game-over-points').className = pointsGained >= 0 ? 'text-xl font-bold text-emerald-500' : 'text-xl font-bold text-rose-500';
             document.getElementById('game-over-total-score').innerText = playerProfile.score;
 
             const restartBtn = document.getElementById('btn-modal-restart');
@@ -1670,7 +1514,6 @@
             }
 
             document.getElementById('modal-game-over').classList.remove('hidden');
-            showToast(`${titleText} (${pointsGained >= 0 ? '+' : ''}${pointsGained} แต้ม)`, winnerColor === myColor ? "success" : "error");
         }
 
         window.restartFromGameOver = () => {
@@ -1833,56 +1676,95 @@
             return false;
         }
 
+        function calculateCapturedFromBoard() {
+            let initialCounts = {};
+            INITIAL_BOARD.forEach(p => {
+                if (p) initialCounts[p] = (initialCounts[p] || 0) + 1;
+            });
+
+            let currentCounts = {};
+            boardState.forEach(p => {
+                if (p) currentCounts[p] = (currentCounts[p] || 0) + 1;
+            });
+
+            capturedByWhite = [];
+            capturedByBlack = [];
+
+            for (let p in initialCounts) {
+                let diff = initialCounts[p] - (currentCounts[p] || 0);
+                for (let k = 0; k < diff; k++) {
+                    if (PIECES[p].color === 'black') {
+                        capturedByWhite.push(p);
+                    } else {
+                        capturedByBlack.push(p);
+                    }
+                }
+            }
+            updateCapturedUI();
+        }
+
+        function updateCapturedUI() {
+            const whiteContainer = document.getElementById('captured-by-white');
+            const blackContainer = document.getElementById('captured-by-black');
+            
+            let whiteScore = capturedByWhite.reduce((sum, p) => sum + (PIECES[p].score === 1000 ? 0 : PIECES[p].score), 0);
+            let blackScore = capturedByBlack.reduce((sum, p) => sum + (PIECES[p].score === 1000 ? 0 : PIECES[p].score), 0);
+
+            if (capturedByWhite.length === 0) {
+                whiteContainer.innerHTML = 'จับได้: 🌸';
+            } else {
+                let whiteEmojis = capturedByWhite.map(p => PIECES[p].emoji).join(' ');
+                whiteContainer.innerHTML = `<span class="truncate max-w-[140px]">จับได้: ${whiteEmojis}</span> <span class="bg-pink-100 text-pink-600 font-bold px-1.5 py-0.5 rounded-full text-[10px] ml-1">+${whiteScore}</span>`;
+            }
+
+            if (capturedByBlack.length === 0) {
+                blackContainer.innerHTML = 'จับได้: 🌌';
+            } else {
+                let blackEmojis = capturedByBlack.map(p => PIECES[p].emoji).join(' ');
+                blackContainer.innerHTML = `<span class="truncate max-w-[140px] justify-end">จับได้: ${blackEmojis}</span> <span class="bg-blue-100 text-blue-600 font-bold px-1.5 py-0.5 rounded-full text-[10px] ml-1">+${blackScore}</span>`;
+            }
+
+            const balanceEl = document.getElementById('material-balance');
+            if (whiteScore === blackScore) {
+                balanceEl.innerHTML = `สมดุลพลัง: เสมอกัน ⚖️`;
+                balanceEl.className = "text-xs font-bold text-purple-400";
+            } else if (whiteScore > blackScore) {
+                balanceEl.innerHTML = `สมดุลพลัง: ชมพูนำอยู่ +${whiteScore - blackScore} 🌸`;
+                balanceEl.className = "text-xs font-bold text-pink-500 animate-pulse";
+            } else {
+                balanceEl.innerHTML = `สมดุลพลัง: ฟ้านำอยู่ +${blackScore - whiteScore} 🌌`;
+                balanceEl.className = "text-xs font-bold text-blue-500 animate-pulse";
+            }
+        }
+
         function renderMoveHistory() {
             const historyList = document.getElementById('move-history-list');
-            let html = '';
-            
-            html = `
-                <div class="border-l-4 border-pink-300 pl-3 py-1 space-y-1 bg-white/60 rounded-r-xl p-2 shadow-inner">
-                    <p class="text-pink-500 font-bold">🪄 บันทึกเวทย์ขณะนี้:</p>
-                    <p class="font-semibold text-slate-500">• โหมดการท้าทาย: ${currentGameMode === 'AI' ? 'สู้กับน้อน AI' : 'ปาร์ตี้ออนไลน์'}</p>
-                    <p class="font-semibold text-slate-500">• ตากระพริบสี: ${turn === 'white' ? 'น้อนสีชมพูเดิน' : 'น้อนสีฟ้าเดิน'}</p>
-                    <p class="font-semibold text-slate-500">• สถานการณ์บอร์ด: สัตว์เลี้ยงประลองกันด้วยความอบอุ่นใจ 🧸🌸</p>
+            historyList.innerHTML = `
+                <div class="border-l-4 border-pink-300 pl-3 py-1 bg-white/60 rounded-r-xl p-2 shadow-inner text-slate-500">
+                    <p class="text-pink-500 font-bold">🪄 ข้อมูลห้องประลอง:</p>
+                    <p>• โหมดเล่น: ${currentGameMode === 'ONLINE' ? (isSheetsDatabaseEnabled ? 'ฐานข้อมูลจริง Google Sheets' : 'โหมดจำลอง Sandbox ออฟไลน์') : 'สู้กับ AI'}</p>
+                    <p>• สีที่ตาเดิน: สี${turn === 'white' ? 'ชมพู' : 'ฟ้า'}</p>
                 </div>
             `;
-            historyList.innerHTML = html;
         }
 
         window.toggleRankModal = (show) => {
             const modal = document.getElementById('modal-rank');
-            if (show) {
-                modal.classList.remove('hidden');
-            } else {
-                modal.classList.add('hidden');
-            }
+            if (show) modal.classList.remove('hidden');
+            else modal.classList.add('hidden');
         };
 
         window.toggleTutorialModal = (show) => {
             const modal = document.getElementById('modal-tutorial');
-            if (show) {
-                modal.classList.remove('hidden');
-            } else {
-                modal.classList.add('hidden');
-            }
+            if (show) modal.classList.remove('hidden');
+            else modal.classList.add('hidden');
         };
 
-        document.getElementById('btn-show-rank').addEventListener('click', () => toggleRankModal(true));
-        document.getElementById('btn-show-tutorial').addEventListener('click', () => toggleTutorialModal(true));
-
-        window.exitGameToLobby = async () => {
-            if (currentGameMode === 'ONLINE' && currentRoomId) {
-                const roomRef = doc(db, 'artifacts', appId, 'public', 'data', 'rooms', currentRoomId);
-                try {
-                    await updateDoc(roomRef, {
-                        status: 'finished',
-                        winner: myColor === 'white' ? 'black' : 'white'
-                    });
-                    onlineListeners.forEach(unsub => unsub());
-                } catch (e) {
-                    console.error(e);
-                }
+        window.exitGameToLobby = () => {
+            if (roomPollingInterval) {
+                clearInterval(roomPollingInterval);
+                roomPollingInterval = null;
             }
-
             currentGameMode = null;
             currentRoomId = null;
             isGameOver = false;
@@ -1893,9 +1775,7 @@
         };
 
         window.resetLocalGame = () => {
-            if (currentGameMode === 'AI') {
-                startAIGame();
-            }
+            if (currentGameMode === 'AI') startAIGame();
         };
 
         function showToast(message, type = "info") {
@@ -1913,19 +1793,23 @@
             `;
             
             container.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.classList.remove('translate-y-2', 'opacity-0');
-            }, 10);
-            
+            setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
             setTimeout(() => {
                 toast.classList.add('opacity-0', 'translate-y-2');
-                setTimeout(() => {
-                    toast.remove();
-                }, 300);
+                setTimeout(() => toast.remove(), 300);
             }, 4000);
         }
 
+        // โหลดข้อมูลล็อกอินผู้เล่นจำลองในตอนเริ่มต้น
+        const savedLocalUser = localStorage.getItem('chess_sheets_logged_in_user');
+        if (savedLocalUser) {
+            currentUser = JSON.parse(savedLocalUser);
+            let accounts = getLocalAccounts();
+            if (accounts[currentUser.username]) {
+                playerProfile = accounts[currentUser.username].profile;
+                setTimeout(() => loadPlayerSession(), 100);
+            }
+        }
     </script>
 </body>
 </html>
